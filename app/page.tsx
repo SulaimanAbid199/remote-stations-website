@@ -1,11 +1,9 @@
-import Header from "@/components/landing/Header";
-import Slider from "@/components/landing/Slider";
+import LandingPage from "@/components/landing/LandingPage";
 
 export default function Home() {
   return (
   <>
-  <Header/>
-  <Slider/>
+   <LandingPage/>
   </>
   );
 }
