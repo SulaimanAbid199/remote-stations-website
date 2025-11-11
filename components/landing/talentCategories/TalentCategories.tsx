@@ -1,13 +1,13 @@
-import { CheckCircle2 } from "lucide-react"
+import Image from "next/image";
 
 interface Category {
-  name: string
-  features: Record<string, boolean>
+  name: string;
+  features: Record<string, boolean>;
 }
 
 interface Feature {
-  name: string
-  description?: string
+  name: string;
+  description?: string;
 }
 
 const TalentCategories = () => {
@@ -19,7 +19,7 @@ const TalentCategories = () => {
     { name: "SME Support" },
     { name: "Cross Domain Experts Support" },
     { name: "Partnership Benefits" },
-  ]
+  ];
 
   const categories: Category[] = [
     {
@@ -70,31 +70,32 @@ const TalentCategories = () => {
         "Partnership Benefits": true,
       },
     },
-  ]
+  ];
 
   return (
     <div className="w-full bg-background py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Talent Categories We Offer</h1>
-          <p className="text-lg text-muted-foreground">
-            Discover the <span className="text-orange-600 font-semibold">key resource categories</span> that power your
-            projects
+          <h1 className="text-4xl font-bold text-[#434343] mb-4">
+            Talent Categories We Offer
+          </h1>
+          <p className="text-md text-[#767676]">
+            Discover the{" "}
+            <span className="text-[#FF6600] font-semibold">
+              key resource categories
+            </span>{" "}
+            that power your projects
           </p>
         </div>
-
-        {/* Table Container */}
-        <div className="overflow-x-auto rounded-lg border border-border">
+        <div className="overflow-x-auto rounded-4xl border border-[#E6E9F5] shadow-lg bg-white">
           <table className="w-full">
-            {/* Table Header */}
             <thead>
-              <tr className="border-b border-border bg-card">
-                <th className="px-6 py-4 text-left font-semibold text-foreground w-48">Features</th>
+              <tr className="border-b border-[#E6E9F5] bg-card">
+                <th className="px-6 py-4 text-left font-semibold text-foreground w-48"></th>
                 {categories.map((category) => (
                   <th
                     key={category.name}
-                    className="px-6 py-4 text-center font-semibold text-foreground border-l border-border"
+                    className="px-6 py-4 text-center text-sm font-semibold text-[#434343] border-l border-[#E6E9F5]"
                   >
                     {category.name}
                   </th>
@@ -102,28 +103,35 @@ const TalentCategories = () => {
               </tr>
             </thead>
 
-            {/* Table Body */}
             <tbody>
               {features.map((feature, idx) => (
                 <tr
                   key={feature.name}
-                  className={`border-b border-border ${
+                  className={`border-b border-[#E6E9F5] ${
                     idx % 2 === 0 ? "bg-card" : "bg-background"
                   } hover:bg-muted/50 transition-colors`}
                 >
-                  {/* Feature Name */}
-                  <td className="px-6 py-4 text-foreground font-medium">{feature.name}</td>
+                  <td className="px-6 py-4 text-[#767676] text-xs">
+                    {feature.name}
+                  </td>
 
-                  {/* Feature Availability per Category */}
                   {categories.map((category) => (
                     <td
                       key={`${feature.name}-${category.name}`}
-                      className="px-6 py-4 text-center border-l border-border"
+                      className="px-6 py-4 text-center border-l border-[#E6E9F5]"
                     >
                       {category.features[feature.name] ? (
-                        <CheckCircle2 className="w-6 h-6 text-orange-600 mx-auto" />
+                        <Image
+                          src="/assets/talent/vector.svg"
+                          alt="logo"
+                          width={16}
+                          height={16}
+                          className="rounded-md mx-auto"
+                        />
                       ) : (
-                        <span className="text-muted-foreground font-medium text-lg">−</span>
+                        <span className="text-[#767676] text-md">
+                          −
+                        </span>
                       )}
                     </td>
                   ))}
@@ -134,7 +142,7 @@ const TalentCategories = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TalentCategories
+export default TalentCategories;

@@ -12,8 +12,8 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section className="w-full bg-white py-8">
-      <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-12">
+    <section className="py-8">
+      <div className=" flex flex-wrap justify-center items-center gap-12">
         {partners.map((logo, index) => (
           <div key={index} className="relative w-36 h-16">
             <Image

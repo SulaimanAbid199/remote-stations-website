@@ -26,8 +26,8 @@ export default function CreateStation() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16">
-          <h1 className="text-5xl font-bold text-foreground mb-3 text-pretty">Create Station</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl">
+          <h1 className="text-3xl font-bold mb-3 text-[#434343]">Create Station</h1>
+          <p className="text-sm text-[#767676] max-w-2xl">
             Save your time, efforts and cost. Build your Remote Station in 3 simple steps.
           </p>
         </div>
@@ -77,11 +77,11 @@ export default function CreateStation() {
 
           {/* Right - Description */}
           <div className="flex flex-col justify-center">
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed text-pretty">
+            <p className="text-md mb-8  text-[767676]">
               Share your project details with one of our industry experts. A dedicated professional from our team will
               work with you to understand your goals, technical needs, and team dynamics.
             </p>
-                    <button className="w-fit px-8 py-6 text-lg font-semibold bg-orange-500 hover:bg-orange-600 text-white rounded-full">
+              <button className="w-fit px-8 py-6 text-lg font-semibold bg-orange-500 hover:bg-orange-600 text-white rounded-full">
               Read More
             </button>
           </div>

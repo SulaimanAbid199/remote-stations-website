@@ -8,24 +8,34 @@ interface CircularStatProps {
 }
 
 export default function CircularStat({ percentage, label, color, borderColor }: CircularStatProps) {
-  const circumference = 2 * Math.PI * 45
+  const strokeWidth = 14 
+  const radius = 45 - strokeWidth / 2 
+  const circumference = 2 * Math.PI * radius
   const strokeDashoffset = circumference - (percentage / 100) * circumference
 
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="relative w-28 h-28">
-        <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          {/* Background circle */}
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" strokeWidth="6" />
-
-          {/* Progress circle */}
+        <svg
+          className="w-full h-full transform -rotate-90"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <circle
             cx="50"
             cy="50"
-            r="45"
+            r={radius}
+            fill="none"
+            stroke="#e5e7eb"
+            strokeWidth={strokeWidth}
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r={radius}
             fill="none"
             stroke="currentColor"
-            strokeWidth="6"
+            strokeWidth={strokeWidth}
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
             strokeLinecap="round"
@@ -33,14 +43,11 @@ export default function CircularStat({ percentage, label, color, borderColor }: 
           />
         </svg>
 
-        {/* Center text */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className={`text-2xl font-bold ${color}`}>{percentage}%</span>
+          <span className={`text-xl font-semibold ${color}`}>{percentage}%</span>
         </div>
       </div>
-
-      {/* Label */}
-      <p className="text-center text-gray-700 font-medium text-sm">{label}</p>
+      <p className="text-center font-medium text-sm text-[#767676]">{label}</p>
     </div>
   )
 }
