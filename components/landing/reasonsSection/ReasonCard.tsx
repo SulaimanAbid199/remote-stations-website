@@ -1,11 +1,9 @@
 import type React from "react";
-
 interface ReasonCardProps {
   icon: string; 
   title: string;
   description: string;
 }
-
 export default function ReasonCard({ icon, title, description }: ReasonCardProps) {
   return (
     <div className="bg-white rounded-lg p-6 border border-gray-100 hover:shadow-md transition-shadow">
