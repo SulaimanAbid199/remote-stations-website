@@ -50,7 +50,7 @@ const competencies: CompetencyCard[] = [
 export function CompetenciesSection() {
   return (
     <section className="w-full py-16 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold ">
             Our <span className="text-[#FF6600]">Competencies</span>

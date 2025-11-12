@@ -11,11 +11,13 @@ const partners = [
 ];
 
 export default function PartnersSection() {
+  const scrollingLogos = [...partners, ...partners];
+
   return (
-    <section className="py-8">
-      <div className=" flex flex-wrap justify-center items-center gap-12">
-        {partners.map((logo, index) => (
-          <div key={index} className="relative w-36 h-16">
+    <section className="py-8 overflow-hidden bg-white">
+      <div className="relative flex w-max animate-scroll">
+        {scrollingLogos.map((logo, index) => (
+          <div key={index} className="relative w-36 h-16 mx-8 flex-shrink-0">
             <Image
               src={logo.src}
               alt={logo.alt}
@@ -26,6 +28,22 @@ export default function PartnersSection() {
           </div>
         ))}
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          display: flex;
+          animation: scroll 25s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }

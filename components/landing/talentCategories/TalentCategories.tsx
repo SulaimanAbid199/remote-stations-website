@@ -73,8 +73,8 @@ const TalentCategories = () => {
   ];
 
   return (
-    <div className="w-full bg-background py-16 px-6">
-      <div className="max-w-6xl mx-auto">
+    <div className="w-full bg-background py-16">
+      <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-[#434343] mb-4">
             Talent Categories We Offer
