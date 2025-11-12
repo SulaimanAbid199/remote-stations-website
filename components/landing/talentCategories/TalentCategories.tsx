@@ -122,7 +122,7 @@ const TalentCategories = () => {
                     >
                       {category.features[feature.name] ? (
                         <Image
-                          src="/assets/talent/vector.svg"
+                          src="/assets/talent/Vector.svg"
                           alt="logo"
                           width={16}
                           height={16}
