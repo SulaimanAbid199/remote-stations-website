@@ -37,7 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} font-[var(--font-poppins)]`}
       >
         <Header />
-        <main className="min-h-screen px-4 sm:px-8 md:px-12">{children}</main>
+        <main className="min-h-screen px-4 bg-[rgb(251, 251, 251)] sm:px-8 md:px-12">{children}</main>
         <Footer />
       </body>
     </html>
