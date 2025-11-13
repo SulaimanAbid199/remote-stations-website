@@ -1,96 +1,84 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { JOBS } from "@/components/careerPage/jobs"
 import Application from "@/components/careerPage/application/Application"
+import Image from "next/image"
 
-
-interface JobDetailPageProps {
-  params: { slug: string }
-}
-
-export default function JobDetailPage({ params }: JobDetailPageProps) {
+export default function JobDetailPage() {
   const router = useRouter()
+  const pathname = usePathname()
+  const slug = pathname.split("/").pop()
+
   const job = JOBS.find(
-    (job) => job.title.toLowerCase().replace(/\s+/g, "-") === params.slug
+    (job) => job.title.toLowerCase().replace(/\s+/g, "-") === slug
   )
 
   if (!job) {
     return (
-      <div className="w-full max-w-4xl mx-auto px-6 py-12 text-center">
-        <h1 className="text-2xl font-bold text-red-600">Job not found</h1>
-      </div>
+      <>
+        <div className="w-full max-w-4xl mx-auto px-6 py-12 text-center">
+          <h1 className="text-2xl font-bold text-red-600">Job not found</h1>
+        </div>
+        <Application />
+      </>
     )
   }
 
   return (
     <>
-    <div className="w-full max-w-4xl mx-auto px-6 py-12">
-      {/* Back Button */}
-      <button
-        onClick={() => router.push("/career")}
-        className="flex items-center text-sm text-orange-500 font-medium hover:underline mb-8"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <div className="w-full max-w-7xl mx-auto  py-12">
+        <button
+          onClick={() => router.push("/career")}
+          className="flex items-center gap-2 text-sm font-sm text-[#282938] hover:underline mb-8"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-        Back to Jobs
-      </button>
+          <Image
+            src="/assets/career/back.svg"
+            alt="Back arrow"
+            width={18}
+            height={18}
+          />
+          Back to Jobs
+        </button>
+        <h1 className="text-2xl md:text-2xl text-[#434343] font-semibold mb-6">{job.title}</h1>
+        <div className="space-y-1 text-sm text-muted-foreground mb-10">
+          <p>
+            <span className="font-semibold">Location:</span> {job.location}
+          </p>
+          <p>
+            <span className="font-semibold ">Job Type:</span> {job.type}
+          </p>
+          <p>
+            <span className="font-semibold ">Experience:</span> {job.experience}
+          </p>
+          <p>
+            <span className="font-semibold">Positions:</span> {job.positions}
+          </p>
+        </div>
 
-      {/* Job Title */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{job.title}</h1>
+        <div className="mb-8">
+          <h2 className="text-md font-semibold mb-1">Job Summary:</h2>
+          <p className="text-sm">{job.summary}</p>
+        </div>
 
-      {/* Job Info */}
-      <div className="space-y-1 text-sm text-muted-foreground mb-10">
-        <p>
-          <span className="font-semibold text-foreground">Location:</span> {job.location}
-        </p>
-        <p>
-          <span className="font-semibold text-foreground">Job Type:</span> {job.type}
-        </p>
-        <p>
-          <span className="font-semibold text-foreground">Experience:</span> {job.experience}
-        </p>
-        <p>
-          <span className="font-semibold text-foreground">Positions:</span> {job.positions}
-        </p>
+        <div className="mb-8">
+          <h2 className="text-md font-semibold mb-1">Required Skills and Qualifications:</h2>
+          <ul className="list-disc pl-6 space-y-1 text-sm">
+            {job.qualifications.map((q, index) => (
+              <li key={index}>{q}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-md font-semibold mb-1">Why Join Us?</h2>
+          <ul className="list-disc pl-6 space-y-1 text-sm">
+            {job.benefits.map((b, index) => (
+              <li key={index}>{b}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      {/* Job Summary */}
-      <div className="mb-8">
-        <h2 className="text-lg font-semibold mb-3">Job Summary:</h2>
-        <p className="text-muted-foreground leading-relaxed">{job.summary}</p>
-      </div>
-
-      {/* Required Skills */}
-      <div className="mb-8">
-        <h2 className="text-lg font-semibold mb-3">Required Skills and Qualifications:</h2>
-        <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-          {job.qualifications.map((q, index) => (
-            <li key={index}>{q}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Why Join Us */}
-      <div>
-        <h2 className="text-lg font-semibold mb-3">Why Join Us?</h2>
-        <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-          {job.benefits.map((b, index) => (
-            <li key={index}>{b}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-
-    <Application/>
-
+      <Application />
     </>
   )
 }

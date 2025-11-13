@@ -53,7 +53,6 @@ export default function Application() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
     setTimeout(() => {
       console.log("Form submitted:", formData)
       alert("Application submitted successfully!")
@@ -64,15 +63,14 @@ export default function Application() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
-      <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">Apply here</h1>
+    <div className="max-w-7xl mx-auto bg-white rounded-4xl shadow-2xl mt-10 mb-32 p-8 md:p-12">
+      <h1 className="text-3xl font-bold text-center mb-12 text-[#2A2A2A]">Apply here</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        {/* Left side - Image */}
+      <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-8 md:gap-12">
         <div className="flex items-center justify-center">
-          <div className="w-full aspect-square relative rounded-2xl overflow-hidden">
+          <div className="w-full aspect-square relative rounded-2xl overflow-hidden shadow-md">
             <Image
-              src="/person-holding-phone.jpg"
+              src="/assets/career/apply.svg"
               alt="Application illustration"
               fill
               className="object-cover"
@@ -80,11 +78,8 @@ export default function Application() {
             />
           </div>
         </div>
-
-        {/* Right side - Form */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center mr-10">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name and Phone Number Row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col">
                 <label className="text-sm font-medium text-gray-700 mb-2">Name</label>
@@ -94,8 +89,8 @@ export default function Application() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
-                  placeholder="Your name"
+                  className="px-4 py-3 placeholder-gray-200 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                 
                 />
               </div>
 
@@ -107,13 +102,12 @@ export default function Application() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
-                  placeholder="Your phone number"
+                  className="px-4 py-3 placeholder-gray-200 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                 
                 />
               </div>
             </div>
 
-            {/* Email */}
             <div className="flex flex-col">
               <label className="text-sm font-medium text-gray-700 mb-2">Email</label>
               <input
@@ -122,12 +116,11 @@ export default function Application() {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
-                placeholder="Your email"
+                className="px-4 py-3  placeholder-gray-200 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF6600] focus:border-transparent transition"
+               
               />
             </div>
 
-            {/* Resume/CV Upload */}
             <div className="flex flex-col">
               <label className="text-sm font-medium text-gray-700 mb-2">
                 Resume/CV <span className="text-red-500">*</span>
@@ -144,17 +137,16 @@ export default function Application() {
                 />
                 <label
                   htmlFor="resume-upload"
-                  className="flex items-center justify-between px-4 py-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition"
+                  className="flex placeholder-gray-200 items-center justify-between px-4 py-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition"
                 >
-                  <span className="text-gray-500">{resumeFileName || "mycv.pdf"}</span>
+                  <span className="text-gray-200">{resumeFileName || "mycv.pdf"}</span>
                 </label>
 
-                {/* Clear button */}
                 {resumeFileName && (
                   <button
                     type="button"
                     onClick={handleClearFile}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-orange-500 hover:text-orange-600 transition"
+                    className="absolute right-3  top-1/2 -translate-y-1/2 text-orange-500 hover:text-orange-600 transition"
                     aria-label="Clear file"
                   >
                     <X size={20} />
@@ -163,11 +155,10 @@ export default function Application() {
               </div>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full transition disabled:opacity-50 disabled:cursor-not-allowed mt-8"
+              className="w-full bg-[#FF6600] hover:bg-[#FF6600] text-white font-semibold py-3 px-6 rounded-full transition disabled:opacity-50 disabled:cursor-not-allowed mt-8"
             >
               {isSubmitting ? "Submitting..." : "Submit Application"}
             </button>
