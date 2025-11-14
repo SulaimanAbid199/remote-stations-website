@@ -75,7 +75,7 @@ export default function CreateStation() {
       </div>
 
       {activeStep !== 0 && (
-        <div className="bg-gray-50 rounded-4xl  flex flex-col md:flex-row items-center gap-6 shadow-sm transition-all duration-300">
+        <div className="bg-gray-50 rounded-4xl p-4 md:p-0 flex flex-col md:flex-row items-center gap-6 shadow-sm transition-all duration-300">
           <div className="rounded-2xl overflow-hidden flex-shrink-0 w-full md:w-1/2">
             <Image
               src={steps[activeStep - 1].image || "/assets/default.jpg"}
