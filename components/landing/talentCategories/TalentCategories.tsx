@@ -73,8 +73,7 @@ const TalentCategories = () => {
   ];
 
   return (
-    <div className="w-full bg-background py-16">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1600px] mx-auto">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-[#434343] mb-4">
             Talent Categories We Offer
@@ -141,7 +140,6 @@ const TalentCategories = () => {
           </table>
         </div>
       </div>
-    </div>
   );
 };
 

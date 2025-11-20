@@ -2,11 +2,10 @@ import CircularStat from "./CircularStat"
 
 export default function FavouriteSection() {
   return (
-   
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1600px] mx-auto">
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-2 md:p-4 lg:p-6">
-            <div className="flex flex-col justify-center p-12">
+            <div className="flex flex-col justify-center ">
               <h1 className="text-3xl md:text-3xl font-bold leading-tight text-[#434343] mb-6">
                 That's why we're list of <span className="text-[#FF6600]">favorites</span>.
               </h1>

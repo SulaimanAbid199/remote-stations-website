@@ -14,7 +14,7 @@ export default function PartnersSection() {
   const scrollingLogos = [...partners, ...partners];
 
   return (
-    <section className="py-8 overflow-hidden bg-white">
+    <section className="overflow-hidden max-w-[1600px] mx-auto">
       <div className="relative flex w-max animate-scroll">
         {scrollingLogos.map((logo, index) => (
           <div key={index} className="relative w-36 h-16 mx-8 flex-shrink-0">

@@ -49,8 +49,7 @@ const competencies: CompetencyCard[] = [
 
 export function CompetenciesSection() {
   return (
-    <section className="w-full py-16 px-4 bg-background">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold ">
             Our <span className="text-[#FF6600]">Competencies</span>
@@ -61,9 +60,9 @@ export function CompetenciesSection() {
           {competencies.map((competency) => (
             <div
               key={competency.id}
-              className="flex flex-col bg-card rounded-4xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              className="flex flex-col bg-card rounded-5xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="relative w-full h-64 bg-muted overflow-hidden">
+              <div className="relative w-full h-80 bg-muted overflow-hidden">
                 <Image
                   src={competency.image || "/placeholder.svg"}
                   alt={competency.title}
@@ -83,6 +82,5 @@ export function CompetenciesSection() {
           ))}
         </div>
       </div>
-    </section>
   )
 }

@@ -2,9 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 export default function Footer() {
   return (
-    <footer className="flex flex-col">
-      <div className="bg-[#1C180D] text-white px-8 py-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer>
+      <div className="bg-[#1C180D] text-white">
+        <div className="grid grid-cols-1 md:grid-cols-4  py-16 gap-12 md:w-[94%] sm:w-[96%] w-[96%] mx-auto max-w-[1600px] mx-auto">
           <div className="flex flex-col">
             <Image
               src="/assets/logo/logo.svg"
@@ -121,8 +121,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-[#FF6600] text-white px-8 py-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-[#FF6600] text-white py-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:w-[94%] sm:w-[96%] w-[96%] mx-auto max-w-[1600px] mx-auto">
           <div className="flex items-center gap-4">
             <span className="text-sm">Follow Us</span>
             <div className="flex gap-3">

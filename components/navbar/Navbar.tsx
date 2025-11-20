@@ -21,8 +21,8 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-black text-white bg-[rgb(251, 251, 251)] shadow-md mx-4 sm:mx-8 md:mx-12 my-4 rounded-4xl overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+    <header className="bg-black text-white shadow-md rounded-4xl overflow-hidden fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[96%] w-[96%] mx-auto z-50">
+      <div className="mx-4 sm:mx-6 lg:mx-12">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
             <Image
@@ -45,7 +45,9 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     className={`transition pl-3 ${
-                      isActive ? "text-[#FF6600]" : "text-white hover:text-[#FF6600]"
+                      isActive
+                        ? "text-[#FF6600]"
+                        : "text-white hover:text-[#FF6600]"
                     }`}
                   >
                     {item.name}
@@ -74,7 +76,9 @@ export default function Navbar() {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={`transition flex items-center gap-2 ${
-                    isActive ? "text-[#FF6600]" : "text-white hover:text-[#FF6600]"
+                    isActive
+                      ? "text-[#FF6600]"
+                      : "text-white hover:text-[#FF6600]"
                   }`}
                 >
                   {isActive && (

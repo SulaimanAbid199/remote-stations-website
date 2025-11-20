@@ -65,7 +65,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="flex flex-col lg:flex-row py-10 gap-8 lg:gap-0 justify-center items-center">
+    <section className="flex flex-col lg:flex-row gap-8 justify-center items-center  max-w-[1600px] mx-auto">
       <div className="flex-1 lg:flex-[0_0_45%] sm:mb-10">
         <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
           <span className="text-orange-500">HIRE</span> <br />

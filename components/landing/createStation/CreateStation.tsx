@@ -31,8 +31,7 @@ export default function CreateStation() {
   const [activeStep, setActiveStep] = useState<number>(2);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16">
-
+    <section className="max-w-[1600px] mx-auto">
       <div>
         <h2 className="text-2xl md:text-3xl font-bold text-[#434343] mb-2">
           Create Station

@@ -69,17 +69,17 @@ export default function ReasonsSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="py-12 text-center">
+    <section className="text-center max-w-[1600px] mx-auto">
       <h2 className="text-sm text-gray-500">Structure That Mirrors Your In‑House Culture</h2>
       <h1 className="text-3xl font-bold mt-1">
         10 <span className="text-[#FF6600]">Reasons</span> To Choose Remote Stations
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-5xl mx-auto mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 mt-2">
         {reasons.map((item, index) => (
           <div
             key={index}
-            className="relative group flex flex-col items-center"
+            className="relative group flex flex-col items-center mt-10"
             onMouseEnter={() => setHovered(index)}
             onMouseLeave={() => setHovered(null)}
           >

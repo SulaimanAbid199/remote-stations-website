@@ -33,11 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} font-[var(--font-poppins)]`}
-      >
-        <Header />
-        <main className="min-h-screen px-4 bg-[rgb(251, 251, 251)] sm:px-8 md:px-12">{children}</main>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} font-[var(--font-poppins)]`}>
+        <div className="bg-[#FBFBFB] pt-4">
+          <Header />
+        </div>
+        <main className="bg-[rgb(251, 251, 251)]">{children}</main>
         <Footer />
       </body>
     </html>
