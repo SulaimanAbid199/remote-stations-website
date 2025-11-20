@@ -1,85 +1,105 @@
-import ReasonCard from "./ReasonCard"
 
-const reasons = [
+
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
+interface Reason {
+  title: string;
+  icon: string;
+  description: string;
+}
+
+const reasons: Reason[] = [
   {
-    id: 1,
-    icon: "/assets/choose/choose.svg",
+    title: "Work From Office",
+    icon: "/assets/choose/chose1.svg",
+    description:
+      "Our talent works full-time from our offices to ensure focus, productivity, and consistent quality.",
+  },
+  {
+    title: "Squad Lead Supervision",
+    icon: "/assets/choose/chose2.svg",
+    description: "Every hire operates under an experienced squad lead who reviews performance, deliverables, and quality benchmarks.",
+  },
+  {
+    title: "Dedicated Talent",
+    icon: "/assets/choose/chose3.svg",
+    description: "Each professional is fully dedicated to one client, no multitasking, no distractions, just results.",
+  },
+  {
     title: "Client-Specific Training",
-    description: "Professional environment ensures stability and uninterrupted work.",
+    icon: "/assets/choose/chose4.svg",
+    description: "We conduct domain and stack-specific training so every expert aligns perfectly with your environment and goals.",
   },
   {
-    id: 2,
-    icon: "/assets/choose/choose1.svg",
-    title: "Dedicated Resource",
-    description: "Full dedication to your project for quality and timely delivery.",
-  },
-  {
-    id: 3,
-    icon: "/assets/choose/choose2.svg",
-    title: "No Extra Time Charges",
-    description: "Transparent pricing, no hidden overtime fees.",
-  },
-  {
-    id: 4,
-    icon: "/assets/choose/choose3.svg",
-    title: "No Multiple Jobs",
-    description: "Exclusive focus on your project ensures efficiency.",
-  },
-  {
-    id: 5,
-    icon: "/assets/choose/choose4.svg",
     title: "Trial Period",
-    description: "Risk-free trial to evaluate before commitment.",
+    icon: "/assets/choose/chose5.svg",
+    description: "Experience our talent risk-free, we don’t charge for the onboarding or trial period.",
   },
   {
-    id: 6,
-    icon: "/assets/choose/choose5.svg",
-    title: "Client-Specific Training",
-    description: "Tailored training to meet your project needs.",
-  },
-  {
-    id: 7,
-    icon: "/assets/choose/choose6.svg",
-    title: "Best Rates",
-    description: "Professional environment ensures stability and uninterrupted work.",
-  },
-  {
-    id: 8,
-    icon: "/assets/choose/choose7.svg",
     title: "Weekly Status Report",
-    description: "Regular updates ensure transparency and accountability.",
+    icon: "/assets/choose/chose6.svg",
+    description: "Squad leads share structured weekly reports, keeping clients informed and projects transparent.",
   },
   {
-    id: 9,
-    icon: "/assets/choose/choose8.svg",
     title: "Cross Domain Support",
-    description: "Expertise across domains, providing complete solutions.",
+    icon: "/assets/choose/chose7.svg",
+    description: "Enjoy complimentary collaboration across domains, DevOps, QA, Backend, or AI whenever needed.",
   },
   {
-    id: 10,
-    icon: "/assets/choose/choose10.svg",
-    title: "Partnership Benefits",
-    description: "Risk-free trial to evaluate before commitment.",
+    title: "Best Rates",
+    icon: "/assets/choose/chose8.svg",
+    description: "Premium quality at the most competitive rates, designed for long-term value, not inflated margins.",
   },
-]
+  {
+    title: "Partnership Benefits",
+    icon: "/assets/choose/chose9.svg",
+    description: "We grow with our clients, unlocking team growth rewards, long-term discounts, and priority onboarding.",
+  },
+  {
+    title: "No Shadowing Policy",
+    icon: "/assets/choose/chose10.svg",
+    description: "We don’t believe in shadowing models, our experts take direct ownership of their work from day one.",
+  },
+];
 
 export default function ReasonsSection() {
+  const [hovered, setHovered] = useState<number | null>(null);
+
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-[#767676] text-sm font-medium mb-2">Structure That Mirrors Your In-House Culture</p>
-          <h2 className="text-3xl sm:text-3xl font-bold">
-            <span className="text-[#434343]">10</span> <span className="text-[#FF6600]">Reasons</span>{" "}
-            <span className="text-[#434343]">To Choose Station</span>
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {reasons.map((reason) => (
-            <ReasonCard key={reason.id} icon={reason.icon} title={reason.title} description={reason.description} />
-          ))}
-        </div>
+    <section className="py-12 text-center">
+      <h2 className="text-sm text-gray-500">Structure That Mirrors Your In‑House Culture</h2>
+      <h1 className="text-3xl font-bold mt-1">
+        10 <span className="text-[#FF6600]">Reasons</span> To Choose Remote Stations
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-5xl mx-auto mt-10">
+        {reasons.map((item, index) => (
+          <div
+            key={index}
+            className="relative group flex flex-col items-center"
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
+          >
+
+            <div className="w-40 h-40 rounded-full bg-white shadow-md flex items-center justify-center border-t-6 border-[#FF6600] relative">
+              <Image src={item.icon} alt={item.title} width={60} height={60} className="object-contain" />
+            </div>
+
+            <div className="w-0 h-0 border-l-24 border-r-24 border-t-[24px] border-transparent border-t-[#FF6600] mt-4"></div>
+
+            <p className="font-medium mt-2">{item.title}</p>
+
+            {hovered === index && (
+              <div className="absolute top-6 w-56 p-4 bg-gray-100 rounded-xl shadow-lg text-sm animate-fadeIn z-20">
+                {item.description}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
-  )
+  );
 }
