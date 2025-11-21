@@ -75,7 +75,7 @@ export default function ReasonsSection() {
         10 <span className="text-[#FF6600]">Reasons</span> To Choose Remote Stations
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 mt-2">
+      <div className="grid grid-cols-1 md:grid-cols-4 mt-2 ">
         {reasons.map((item, index) => (
           <div
             key={index}
