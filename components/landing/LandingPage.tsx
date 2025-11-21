@@ -5,6 +5,7 @@ import ReasonsSection from "./reasonsSection/ReasonsSection";
 import FavouriteSection from "./favourite/FavouriteSection";
 import { CompetenciesSection } from "./competenciesSection/CompetenciesSection";
 import TalentCategories from "./talentCategories/TalentCategories";
+import FAQSection from "./faqSection/FAQSection";
 
 export default function LandingPage() {
   return (
@@ -44,6 +45,11 @@ export default function LandingPage() {
           <TalentCategories />
         </div>
       </div>
+       <div className="bg-[white] py-20">
+        <div className="md:w-[94%] sm:w-[96%] w-[96%] mx-auto">
+          <FAQSection />
+        </div>
+      </div>   
     </>
   );
 }
