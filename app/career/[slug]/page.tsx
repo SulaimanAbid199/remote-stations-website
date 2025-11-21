@@ -26,8 +26,8 @@ export default function JobDetailPage() {
   }
 
   return (
-    <>
-      <div className="w-full max-w-7xl mx-auto  py-12">
+    <div className="bg-[#FBFBFB] pt-22 pb-20">
+      <div className="md:w-[94%] sm:w-[96%] w-[96%] mx-auto max-w-[1600px]">
         <button
           onClick={() => router.push("/career")}
           className="flex items-center gap-2 text-sm font-sm text-[#282938] hover:underline mb-8"
@@ -77,8 +77,8 @@ export default function JobDetailPage() {
             ))}
           </ul>
         </div>
-      </div>
       <Application />
-    </>
+      </div>
+    </div>
   )
 }

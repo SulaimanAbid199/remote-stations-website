@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ContactSection() {
   return (
-    <main className="max-w-7xl mx-auto bg-white rounded-4xl shadow-2xl mt-10 mb-32 p-8 md:p-12">
+    <main className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl p-8 md:p-12">
 
       <h1 className="text-2xl md:text-3xl font-bold text-center mb-12 text-[#2A2A2A]">
         Contact Us

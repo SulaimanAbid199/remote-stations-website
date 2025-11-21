@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function Location() {
   return (
-    <main className="max-w-7xl mx-auto bg-white rounded-4xl shadow-2xl mt-10 mb-32 ">
+    <main className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl ">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
         <MapSection />
         <LocateUsSection />

@@ -81,15 +81,11 @@ const Section = ({ title, children }: any) => {
   );
 };
 
-// MAIN COMPONENT
-
 export function Portfolio({ member }: PortfolioProps) {
   return (
-    <div className="min-h-screen bg-white text-slate-900 mt-28">
-
-      {/* TWO COLUMN MAIN LAYOUT */}
-      <div className="max-w-7xl mx-auto px-6 py-10 
-        grid grid-cols-1 md:grid-cols-[250px_1fr] gap-10">
+    <div className="bg-[#FBFBFB] pt-30 pb-20">
+      <div className="md:w-[94%] sm:w-[96%] w-[96%] max-w-[1600px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] gap-10">
 
         {/* LEFT — IMAGE + BUTTON */}
         <div className="flex flex-col items-center md:items-start gap-4">
@@ -224,6 +220,7 @@ export function Portfolio({ member }: PortfolioProps) {
           </Section>
 
         </div>
+      </div>
       </div>
     </div>
   );

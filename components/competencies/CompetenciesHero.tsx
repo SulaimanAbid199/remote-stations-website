@@ -4,8 +4,7 @@ import Image from "next/image"
 
 export default function CompetenciesHero() {
     return (
-        <section className="w-full px-4 py-10 md:py-14 lg:py-16">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-[1600px] mx-auto">
                 <div className="bg-white rounded-4xl shadow-lg">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                         {/* Left Content */}
@@ -46,6 +45,5 @@ export default function CompetenciesHero() {
                     </div>
                 </div>
             </div>
-        </section>
     )
 }

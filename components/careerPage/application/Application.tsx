@@ -63,7 +63,7 @@ export default function Application() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto bg-white rounded-4xl shadow-2xl mt-10 mb-32 p-8 md:p-12">
+    <div className="bg-white rounded-4xl shadow-2xl mt-10 p-12">
       <h1 className="text-3xl font-bold text-center mb-12 text-[#2A2A2A]">Apply here</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-8 md:gap-12">
