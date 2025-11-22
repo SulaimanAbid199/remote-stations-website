@@ -1,5 +1,53 @@
+// import ContactForm from "./ContactForm"
+// import Image from "next/image"
+
+// export const metadata = {
+//   title: "Contact Us",
+//   description: "Get in touch with us",
+// }
+
+// export default function ContactSection() {
+//   return (
+//     <main className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl p-8 md:p-12">
+
+//       <h1 className="text-2xl md:text-3xl font-bold text-center mb-2 text-[#2A2A2A]">
+//         Book a discovery call
+//       </h1>
+
+//       <p className=" mb-12 text-center">
+//         We're passionate about your success. We're just a click away
+//       </p>
+//       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+//         <div className="lg:col-span-5 w-full relative h-[600px] rounded-2xl overflow-hidden shadow-md">
+//           <Image
+//             src="/assets/career/apply1.svg"
+//             alt="Application illustration"
+//             fill
+//             className="object-cover"
+//             priority
+//           />
+//         </div>
+
+//         <div className="lg:col-span-7 w-full">
+//           <ContactForm />
+//         </div>
+
+//       </div>
+
+
+//     </main>
+//   )
+// }
+
+
+
+
+"use client"
+
 import ContactForm from "./ContactForm"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 export const metadata = {
   title: "Contact Us",
@@ -7,29 +55,61 @@ export const metadata = {
 }
 
 export default function ContactSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        when: "beforeChildren",
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
+
   return (
-    <main className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl p-8 md:p-12">
+    <motion.main
+      className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl p-8 md:p-12"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h1
+        className="text-2xl md:text-3xl font-bold text-center mb-2 text-[#2A2A2A]"
+        variants={itemVariants}
+      >
+        Book a discovery call
+      </motion.h1>
 
-      <h1 className="text-2xl md:text-3xl font-bold text-center mb-12 text-[#2A2A2A]">
-        Contact Us
-      </h1>
+      <motion.p className="mb-12 text-center" variants={itemVariants}>
+        We're passionate about your success. We're just a click away
+      </motion.p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        <div className="lg:col-span-5 w-full aspect-square relative rounded-2xl overflow-hidden shadow-md">
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+        variants={containerVariants}
+      >
+        <motion.div
+          className="lg:col-span-5 w-full relative h-[600px] rounded-2xl overflow-hidden shadow-md"
+          variants={itemVariants}
+        >
           <Image
-            src="/assets/career/apply.svg"
+            src="/assets/career/apply1.svg"
             alt="Application illustration"
             fill
             className="object-cover"
             priority
           />
-        </div>
+        </motion.div>
 
-        <div className="lg:col-span-7 w-full">
+        <motion.div className="lg:col-span-7 w-full" variants={itemVariants}>
           <ContactForm />
-        </div>
-      </div>
-
-    </main>
+        </motion.div>
+      </motion.div>
+    </motion.main>
   )
 }

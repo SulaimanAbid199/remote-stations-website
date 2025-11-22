@@ -1,11 +1,193 @@
+// "use client"
+
+// import { useState, type FormEvent, type ChangeEvent } from "react"
+
+// interface FormData {
+//   name: string
+//   phoneNumber: string
+//   email: string
+//   slot: string
+//   time: string
+//   message: string
+// }
+
+// export default function ContactForm() {
+//   const [formData, setFormData] = useState<FormData>({
+//     name: "",
+//     phoneNumber: "",
+//     email: "",
+//     slot: "",
+//     time: "",
+//     message: "",
+//   })
+
+//   const [isSubmitting, setIsSubmitting] = useState(false)
+//   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+
+//   const handleChange = (
+//     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+//   ) => {
+//     const { name, value } = e.target
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }))
+//   }
+
+//   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+//     e.preventDefault()
+//     setIsSubmitting(true)
+
+//     try {
+//       await new Promise((resolve) => setTimeout(resolve, 1000))
+//       setSubmitStatus("success")
+
+//       setFormData({
+//         name: "",
+//         phoneNumber: "",
+//         email: "",
+//         slot: "",
+//         time: "",
+//         message: "",
+//       })
+
+//       setTimeout(() => setSubmitStatus("idle"), 3000)
+//     } catch (error) {
+//       setSubmitStatus("error")
+//       setTimeout(() => setSubmitStatus("idle"), 3000)
+//     } finally {
+//       setIsSubmitting(false)
+//     }
+//   }
+
+//   return (
+//     <form onSubmit={handleSubmit} className="space-y-6">
+
+//       {/* Name + Phone Row */}
+//       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+//           <input
+//             type="text"
+//             name="name"
+//             value={formData.name}
+//             placeholder="Enter your name"
+//             onChange={handleChange}
+//             className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 placeholder-gray-300"
+//             required
+//           />
+//         </div>
+
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+//           <input
+//             type="tel"
+//             name="phoneNumber"
+//             placeholder="Enter your phone number"
+//             value={formData.phoneNumber}
+//             onChange={handleChange}
+//             className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 placeholder-gray-300"
+//             required
+//           />
+//         </div>
+//       </div>
+
+//       {/* Email */}
+//       <div>
+//         <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+//         <input
+//           type="email"
+//           name="email"
+//           placeholder="example@email.com"
+//           value={formData.email}
+//           onChange={handleChange}
+//           className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 placeholder-gray-300"
+//           required
+//         />
+//       </div>
+
+//       {/* Slot + Time Row */}
+//       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+//         {/* Slot */}
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-2">Select a Slot</label>
+//           <select
+//             name="slot"
+//             value={formData.slot}
+//             onChange={handleChange}
+//             className={`w-full px-4 py-3 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-orange-500 focus:ring-1 transition ${!formData.slot ? "text-gray-300" : "text-gray-800"}`}
+//             required
+//           >
+//             <option value="" disabled hidden>Choose a slot</option>
+//             <option value="morning">Morning Slot</option>
+//             <option value="afternoon">Afternoon Slot</option>
+//             <option value="evening">Evening Slot</option>
+//           </select>
+//         </div>
+
+//         {/* Time */}
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-2">Select Time</label>
+//           <select
+//             name="time"
+//             value={formData.time}
+//             onChange={handleChange}
+//             className={`w-full px-4 py-3 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-orange-500 focus:ring-1 transition ${!formData.time ? "text-gray-300" : "text-gray-800"}`}
+//             required
+//           >
+//             <option value="" disabled hidden>Choose a time</option>
+//             <option value="10:00 AM">10:00 AM</option>
+//             <option value="12:00 PM">12:00 PM</option>
+//             <option value="02:00 PM">02:00 PM</option>
+//             <option value="04:00 PM">04:00 PM</option>
+//           </select>
+//         </div>
+//       </div>
+
+//       {/* Message */}
+//       <div>
+//         <label className="block text-sm font-medium text-gray-700 mb-2">Tell Us More</label>
+//         <textarea
+//           name="message"
+//           value={formData.message}
+//           placeholder="Type your message..."
+//           onChange={handleChange}
+//           rows={6}
+//           className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 resize-none placeholder-gray-300"
+//           required
+//         />
+//       </div>
+
+//       <button
+//         type="submit"
+//         disabled={isSubmitting}
+//         className="w-full bg-[#FF6600] hover:bg-[#FF6600] disabled:bg-orange-400 text-white font-semibold py-4 rounded-full transition duration-200 transform hover:scale-105 disabled:cursor-not-allowed"
+//       >
+//         {isSubmitting ? "Sending..." : "Send Message"}
+//       </button>
+
+//       {submitStatus === "success" && (
+//         <p className="text-green-600 text-center font-medium">Message sent successfully!</p>
+//       )}
+//       {submitStatus === "error" && (
+//         <p className="text-red-600 text-center font-medium">Failed to send message. Please try again.</p>
+//       )}
+//     </form>
+//   )
+// }
+
+
 "use client"
 
 import { useState, type FormEvent, type ChangeEvent } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface FormData {
   name: string
   phoneNumber: string
   email: string
+  slot: string
+  time: string
   message: string
 }
 
@@ -14,13 +196,17 @@ export default function ContactForm() {
     name: "",
     phoneNumber: "",
     email: "",
+    slot: "",
+    time: "",
     message: "",
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
@@ -33,10 +219,18 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      // Simulate form submission
       await new Promise((resolve) => setTimeout(resolve, 1000))
       setSubmitStatus("success")
-      setFormData({ name: "", phoneNumber: "", email: "", message: "" })
+
+      setFormData({
+        name: "",
+        phoneNumber: "",
+        email: "",
+        slot: "",
+        time: "",
+        message: "",
+      })
+
       setTimeout(() => setSubmitStatus("idle"), 3000)
     } catch (error) {
       setSubmitStatus("error")
@@ -46,92 +240,145 @@ export default function ContactForm() {
     }
   }
 
+  const fieldVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.3 },
+    }),
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Name and Phone Number Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-        
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent transition"
-            required
-          />
-        </div>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fieldVariants}
+        custom={0}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              placeholder="Enter your name"
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 placeholder-gray-300"
+              required
+            />
+          </div>
 
-        <div>
-          <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
-            Phone Number
-          </label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-          
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent transition"
-            required
-          />
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+            <input
+              type="tel"
+              name="phoneNumber"
+              placeholder="Enter your phone number"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 placeholder-gray-300"
+              required
+            />
+          </div>
         </div>
-      </div>
-
-      {/* Email */}
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-          Email
-        </label>
+      </motion.div>
+      <motion.div variants={fieldVariants} custom={1} initial="hidden" animate="visible">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
         <input
           type="email"
-          id="email"
           name="email"
+          placeholder="example@email.com"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent transition"
+          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 placeholder-gray-300"
           required
         />
-      </div>
+      </motion.div>
 
-      {/* Message */}
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          Tell Us More
-        </label>
+      <motion.div variants={fieldVariants} custom={2} initial="hidden" animate="visible">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Select a Slot</label>
+            <select
+              name="slot"
+              value={formData.slot}
+              onChange={handleChange}
+              className={`w-full px-4 py-3 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-orange-500 focus:ring-1 transition ${!formData.slot ? "text-gray-300" : "text-gray-800"}`}
+              required
+            >
+              <option value="" disabled hidden>Choose a slot</option>
+              <option value="morning">Morning Slot</option>
+              <option value="afternoon">Afternoon Slot</option>
+              <option value="evening">Evening Slot</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Select Time</label>
+            <select
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+              className={`w-full px-4 py-3 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-orange-500 focus:ring-1 transition ${!formData.time ? "text-gray-300" : "text-gray-800"}`}
+              required
+            >
+              <option value="" disabled hidden>Choose a time</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+            </select>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div variants={fieldVariants} custom={3} initial="hidden" animate="visible">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Tell Us More</label>
         <textarea
-          id="message"
           name="message"
           value={formData.message}
-          onChange={handleChange}
           placeholder="Type your message..."
+          onChange={handleChange}
           rows={6}
-          className="w-full placeholder-gray-200 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent transition resize-none"
+          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-orange-500 focus:ring-1 resize-none placeholder-gray-300"
           required
         />
-      </div>
-
-      {/* Submit Button */}
-      <button
+      </motion.div>
+      <motion.button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#FF6600] hover:bg-[#FF6600] disabled:bg-orange-400 text-white font-semibold py-4 px-6 rounded-full transition duration-200 transform hover:scale-105 disabled:cursor-not-allowed"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-full bg-[#FF6600] hover:bg-[#FF6600] disabled:bg-orange-400 text-white font-semibold py-4 rounded-full transition duration-200 transform disabled:cursor-not-allowed"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
-      </button>
+      </motion.button>
 
-      {/* Status Messages */}
-      {submitStatus === "success" && (
-        <p className="text-green-600 text-center font-medium">Message sent successfully!</p>
-      )}
-      {submitStatus === "error" && (
-        <p className="text-red-600 text-center font-medium">Failed to send message. Please try again.</p>
-      )}
+      <AnimatePresence>
+        {submitStatus === "success" && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="text-green-600 text-center font-medium"
+          >
+            Message sent successfully!
+          </motion.p>
+        )}
+        {submitStatus === "error" && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="text-red-600 text-center font-medium"
+          >
+            Failed to send message. Please try again.
+          </motion.p>
+        )}
+      </AnimatePresence>
     </form>
   )
 }

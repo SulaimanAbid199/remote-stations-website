@@ -19,7 +19,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#"
+                  href="/competencies"
                   className="text-sm hover:text-white transition-colors"
                 >
                   Competancies
@@ -40,7 +40,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#"
+                  href=""
                   className=" text-sm  hover:text-white transition-colors"
                 >
                   Our Services
@@ -48,7 +48,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/team"
                   className=" text-sm  hover:text-white transition-colors"
                 >
                   Meet Our Team
