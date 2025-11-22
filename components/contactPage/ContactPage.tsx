@@ -7,7 +7,7 @@ export default function ContactPage() {
       <div className="bg-[#FBFBFB] pt-22">
         <div className="md:w-[94%] sm:w-[94%] w-[94%] mx-auto">
           <ContactSection />
-          <div className="py-20">
+          <div className="pt-20 pb-30">
             <Location />
           </div>
         </div>

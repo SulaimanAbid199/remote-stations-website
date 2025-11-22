@@ -15,7 +15,7 @@ export default function LandingPage() {
           <Hero />
         </div>
       </div>
-      <div className="bg-[white] py-20">
+      <div className="bg-[white] py-10 md:py-20">
         <div className="md:w-[94%] sm:w-[94%] w-[94%] mx-auto">
           <PartnersSection />
         </div>
@@ -30,7 +30,7 @@ export default function LandingPage() {
           <ChooseReason />
         </div>
       </div>
-      <div className="bg-[#FBFBFB] py-20">
+      <div className="bg-[#FBFBFB] py-10 md:py-20">
         <div className="md:w-[94%] sm:w-[94%] w-[94%] mx-auto">
           <FavouriteSection />
         </div>

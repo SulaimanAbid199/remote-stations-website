@@ -26,7 +26,7 @@ export default function JobDetailPage() {
   }
 
   return (
-    <div className="bg-[#FBFBFB] pt-22 pb-20">
+    <div className="bg-[#FBFBFB] pt-30 pb-20">
       <div className="md:w-[94%] sm:w-[94%] w-[94%] mx-auto max-w-[1600px]">
         <button
           onClick={() => router.push("/career")}

@@ -65,10 +65,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="flex flex-col lg:flex-row gap-8 justify-center items-center  max-w-[1600px] mx-auto">
+    <section className="flex flex-col lg:flex-row gap-8 justify-center lg:items-center  max-w-[1600px] mx-auto">
       <div className="flex-1 lg:flex-[0_0_45%] sm:mb-10">
         <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
-          <span className="text-orange-500">HIRE</span> <br />
+          <span className="text-[#FF6600]">HIRE</span> <br />
           <span className="text-black">DEDICATED TALENT</span>
         </h2>
 
@@ -76,13 +76,13 @@ export default function Hero() {
           Not Just Freelancers
         </p>
 
-        <p className="text-gray-600 leading-relaxed max-w-lg mt-4">
+        <p className="text-gray-600 leading-relaxed  mt-4">
           Say goodbye to compromises. Experience commitment, quality, and
           reliability like never before. Boost your business with focus and
           quality. Lock your Remote Stations today!
         </p>
 
-        <button className="mt-8 flex items-center gap-2 border border-orange-500 text-orange-500 font-semibold rounded-full px-6 py-3 hover:bg-orange-500 hover:text-white transition">
+        <button className="mt-8 flex items-center gap-2 border border-[#FF6600] text-[#FF6600] font-semibold rounded-full px-6 py-3 hover:bg-[#FF6600] hover:text-white transition">
           <Wifi className="w-5 h-5" />
           CREATE YOUR REMOTE STATION
         </button>
@@ -120,26 +120,26 @@ export default function Hero() {
 
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-orange-500 text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20"
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#FF6600] text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20"
           >
             <ChevronLeft />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-orange-500 text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20"
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#FF6600] text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20"
           >
             <ChevronRight />
           </button>
         </div>
 
-        <div className="absolute bottom-50 lg:bottom-30 left-[-4px] bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold text-lg z-10 transition-opacity duration-700 ease-in-out">
+        <div className="absolute bottom-50 lg:bottom-30 left-[-4px] bg-[#FF6600] text-white px-6 py-3 rounded-lg font-semibold text-lg z-10 transition-opacity duration-700 ease-in-out">
           {talent.name}
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 w-full gap-2">
           <div className="bg-white shadow-md p-4 rounded-lg flex-1 transition-opacity duration-700 ease-in-out flex flex-col justify-center items-start">
-            <p className="text-orange-500 text-xl mb-1">★★★★★</p>
+            <p className="text-[#FF6600] text-xl mb-1">★★★★★</p>
             <p className="text-gray-600 text-md">Rating</p>
           </div>
 
