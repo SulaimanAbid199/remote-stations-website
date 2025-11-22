@@ -1,9 +1,9 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Wifi, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Talent {
   name: string;
@@ -52,7 +52,7 @@ const talents: Talent[] = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const talent = talents[current];
-
+  const router = useRouter();
   const nextSlide = () => setCurrent((prev) => (prev + 1) % talents.length);
   const prevSlide = () =>
     setCurrent((prev) => (prev - 1 + talents.length) % talents.length);
@@ -94,9 +94,11 @@ export default function Hero() {
             {talents.map((talent, index) => (
               <div
                 key={index}
-                className={`${index === current ? "relative" : "absolute inset-0"
-                  } transition-opacity duration-800 ease-in-out ${index === current ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
+                className={`${
+                  index === current ? "relative" : "absolute inset-0"
+                } transition-opacity duration-800 ease-in-out ${
+                  index === current ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
               >
                 <Image
                   src={talent.image}
@@ -109,18 +111,12 @@ export default function Hero() {
               </div>
             ))}
 
-            <button
-              className="absolute bottom-20 left-1/2 -translate-x-1/2
-      bg-white/30 text-white px-4 py-3 rounded-full
-      font-semibold text-md shadow-md flex items-center gap-2
-      opacity-0 group-hover:opacity-100 transition-all duration-500
-       z-20"
-            >
+            <button className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-white/30 text-white px-4 py-3 rounded-full font-semibold text-md shadow-md flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 cursor-pointer"
+            onClick={() => router.push("/contact")}>
               Book a Discovery Call
               <ArrowUpRight className="w-5 h-5" />
             </button>
           </div>
-
 
           <button
             onClick={prevSlide}

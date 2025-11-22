@@ -89,15 +89,15 @@ export function Portfolio({ member }: PortfolioProps) {
 
         {/* LEFT — IMAGE + BUTTON */}
         <div className="flex flex-col items-center md:items-start gap-4">
-          <div className="w-60 h-60 md:w-64 md:h-64 rounded-3xl overflow-hidden shadow-xl border">
+          <div className="h-60 md:h-60 rounded-3xl overflow-hidden shadow-xl border">
             <img
-              src={member.image}
+              src={member.cover}
               alt={member.name}
-              className="w-full h-full object-cover"
+              className=""
             />
           </div>
 
-          <button className="w-full px-8 py-3 bg-[#FF6600] text-white rounded-full hover:bg-[#E65A00] transition">
+          <button className="w-[230px] px-8 py-3 bg-[#FF6600] text-white rounded-full hover:bg-[#E65A00] transition">
             Hire Now
           </button>
         </div>

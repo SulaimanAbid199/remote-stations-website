@@ -1,31 +1,30 @@
-
 export interface ExperienceItem {
-  role: string
-  company: string
-  duration: string
-  bullets: string[]
-  icon: string
+  role: string;
+  company: string;
+  duration: string;
+  bullets: string[];
+  icon: string;
 }
 
 export interface EducationItem {
-  degree: string
-  university: string
-  date: string
-  icon?: string
+  degree: string;
+  university: string;
+  date: string;
+  icon?: string;
 }
 
 export interface TeamMember {
-  id: string
-  name: string
-  position: string
-  image: string
-  cover: string
-  slug: string
-  skills: string[]
-  domains: string[]
-  bio: string
-  experience: ExperienceItem[]
-  education?: EducationItem
+  id: string;
+  name: string;
+  position: string;
+  image: string;
+  cover: string;
+  slug: string;
+  skills: string[];
+  domains: string[];
+  bio: string;
+  experience: ExperienceItem[];
+  education?: EducationItem;
 }
 
 export const teamMembers: TeamMember[] = [
@@ -34,7 +33,7 @@ export const teamMembers: TeamMember[] = [
     name: "Umar Aziz",
     position: "Head of Backend",
     image: "/assets/team/member1.svg",
-    cover: "/assets/team/cover1.svg",
+    cover: "/assets/team/m4D.svg",
     slug: "umar-aziz",
 
     skills: [
@@ -72,7 +71,7 @@ export const teamMembers: TeamMember[] = [
       },
       {
         role: "Solutions Architect (Part Time)",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Dec 2023 – Mar 2024",
         bullets: [
@@ -80,13 +79,13 @@ export const teamMembers: TeamMember[] = [
           "Led third-party integrations and ensured solution scalability.",
           "Managed the development lifecycle, from design to deployment.",
           "Coordinated with teams to ensure alignment with business goals.",
-          "Specialized in solution design, team management, and architecture."
+          "Specialized in solution design, team management, and architecture.",
         ],
       },
 
       {
         role: "Solutions Architect (Part Time)",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Digitify",
         duration: "Mar 2023 - Nov 2023",
         bullets: [
@@ -94,13 +93,13 @@ export const teamMembers: TeamMember[] = [
           "Collaborated with senior management to define project scopes, timelines, and deliverables.",
           "Implemented proof of concepts on various technology trends.",
           "Assisted in presenting business ideas and innovative solutions to senior management.",
-          "Worked closely with stakeholders to define and drive product development."
+          "Worked closely with stakeholders to define and drive product development.",
         ],
       },
 
       {
         role: "Solutions Architect",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2022 - Jan 2023",
         bullets: [
@@ -108,13 +107,13 @@ export const teamMembers: TeamMember[] = [
           "Managed development teams and conducted code reviews.",
           "Designed and implemented core transaction and payment modules.",
           "Oversaw development of features like integration with payment systems.",
-          "Worked on the development lifecycle from analysis to deployment."
+          "Worked on the development lifecycle from analysis to deployment.",
         ],
       },
 
       {
         role: "Solutions Architect",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2018 - Mar 2022",
         bullets: [
@@ -122,7 +121,7 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
       {
@@ -135,13 +134,13 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
 
       {
         role: "Technical Lead",
-         icon: "/assets/team/icon2.svg",
+        icon: "/assets/team/icon2.svg",
         company: "YAP",
         duration: "Mar 2018 - Mar 2022",
         bullets: [
@@ -167,7 +166,6 @@ export const teamMembers: TeamMember[] = [
         ],
       },
 
-
       {
         role: "Senior Software Engineer",
         icon: "/assets/team/icon4.svg",
@@ -178,7 +176,7 @@ export const teamMembers: TeamMember[] = [
           "Led a Flex development team and provided training to junior developers.",
           "Designed and developed various application modules, from front-end to back-end.",
           "Integrated email notification services and schedulers.",
-          "Developed custom components using Flex for the registration system."
+          "Developed custom components using Flex for the registration system.",
         ],
       },
 
@@ -192,7 +190,7 @@ export const teamMembers: TeamMember[] = [
           "Integrated PayPal for online payment and Tropo for IVR-based orders.",
           "Created a CMS to manage restaurant and takeaway content for the app.",
           "Worked on both front-end and back-end development.",
-          "Successfully launched the iPhone app on the Apple App Store."
+          "Successfully launched the iPhone app on the Apple App Store.",
         ],
       },
 
@@ -206,12 +204,12 @@ export const teamMembers: TeamMember[] = [
           "Implemented business logic for leasing and financing operations.",
           "Participated in CMMI activities and contributed to documentation.",
           "Involved in functional and requirement specifications for various modules.",
-          "Worked on integrating multiple financial systems into a unified solution."
+          "Worked on integrating multiple financial systems into a unified solution.",
         ],
       },
     ],
 
-     education: {
+    education: {
       degree: "Bachelor's of Science in IT",
       university: "National University of Sciences & Technology",
       date: "2015 – 2019",
@@ -219,13 +217,12 @@ export const teamMembers: TeamMember[] = [
     },
   },
 
-
-   {
+  {
     id: "2",
     name: "Abdul Basit Javed",
     position: "Head of DevOps",
     image: "/assets/team/member2.svg",
-    cover: "/assets/team/cover1.svg",
+    cover: "/assets/team/m4D.svg",
     slug: "abdul-basit-javed",
 
     skills: [
@@ -249,7 +246,7 @@ export const teamMembers: TeamMember[] = [
       "Security Enhanced Linux (SELinux), Iptables",
       "Nginx, Squid Proxy Server, Mail Server (Sendmail/Postfix), DHCP Server",
       "Grafana",
-      "OpenNMS"
+      "OpenNMS",
     ],
 
     domains: ["Azure", "AWS", "GCP", "Hetzner", "Digital Ocean"],
@@ -272,7 +269,7 @@ export const teamMembers: TeamMember[] = [
       },
       {
         role: "Principal DevOps Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Dec 2023 – Mar 2024",
         bullets: [
@@ -280,13 +277,13 @@ export const teamMembers: TeamMember[] = [
           "Led third-party integrations and ensured solution scalability.",
           "Managed the development lifecycle, from design to deployment.",
           "Coordinated with teams to ensure alignment with business goals.",
-          "Specialized in solution design, team management, and architecture."
+          "Specialized in solution design, team management, and architecture.",
         ],
       },
 
       {
         role: "Technical Lead (SCM & Systems Security)",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Digitify",
         duration: "Mar 2023 - Nov 2023",
         bullets: [
@@ -294,13 +291,13 @@ export const teamMembers: TeamMember[] = [
           "Collaborated with senior management to define project scopes, timelines, and deliverables.",
           "Implemented proof of concepts on various technology trends.",
           "Assisted in presenting business ideas and innovative solutions to senior management.",
-          "Worked closely with stakeholders to define and drive product development."
+          "Worked closely with stakeholders to define and drive product development.",
         ],
       },
 
       {
         role: "Assistant Manager SCM",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2022 - Jan 2023",
         bullets: [
@@ -308,13 +305,13 @@ export const teamMembers: TeamMember[] = [
           "Managed development teams and conducted code reviews.",
           "Designed and implemented core transaction and payment modules.",
           "Oversaw development of features like integration with payment systems.",
-          "Worked on the development lifecycle from analysis to deployment."
+          "Worked on the development lifecycle from analysis to deployment.",
         ],
       },
 
       {
         role: "Senior SCM Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2018 - Mar 2022",
         bullets: [
@@ -322,7 +319,7 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
       {
@@ -335,12 +332,12 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
     ],
 
-     education: {
+    education: {
       degree: "Bachelor's of Science in IT",
       university: "National University of Sciences & Technology",
       date: "2015 – 2019",
@@ -348,13 +345,12 @@ export const teamMembers: TeamMember[] = [
     },
   },
 
-
-    {
+  {
     id: "3",
     name: "Rana Faizan Ahmad",
     position: "Squad Leader of UI/UX",
     image: "/assets/team/member3.svg",
-    cover: "/assets/team/cover1.svg",
+    cover: "/assets/team/m4D.svg",
     slug: "rana-faizan-ahmad",
 
     skills: [
@@ -378,7 +374,7 @@ export const teamMembers: TeamMember[] = [
       "Security Enhanced Linux (SELinux), Iptables",
       "Nginx, Squid Proxy Server, Mail Server (Sendmail/Postfix), DHCP Server",
       "Grafana",
-      "OpenNMS"
+      "OpenNMS",
     ],
 
     domains: ["Azure", "AWS", "GCP", "Hetzner", "Digital Ocean"],
@@ -401,7 +397,7 @@ export const teamMembers: TeamMember[] = [
       },
       {
         role: "Principal DevOps Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Dec 2023 – Mar 2024",
         bullets: [
@@ -409,13 +405,13 @@ export const teamMembers: TeamMember[] = [
           "Led third-party integrations and ensured solution scalability.",
           "Managed the development lifecycle, from design to deployment.",
           "Coordinated with teams to ensure alignment with business goals.",
-          "Specialized in solution design, team management, and architecture."
+          "Specialized in solution design, team management, and architecture.",
         ],
       },
 
       {
         role: "Technical Lead (SCM & Systems Security)",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Digitify",
         duration: "Mar 2023 - Nov 2023",
         bullets: [
@@ -423,13 +419,13 @@ export const teamMembers: TeamMember[] = [
           "Collaborated with senior management to define project scopes, timelines, and deliverables.",
           "Implemented proof of concepts on various technology trends.",
           "Assisted in presenting business ideas and innovative solutions to senior management.",
-          "Worked closely with stakeholders to define and drive product development."
+          "Worked closely with stakeholders to define and drive product development.",
         ],
       },
 
       {
         role: "Assistant Manager SCM",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2022 - Jan 2023",
         bullets: [
@@ -437,13 +433,13 @@ export const teamMembers: TeamMember[] = [
           "Managed development teams and conducted code reviews.",
           "Designed and implemented core transaction and payment modules.",
           "Oversaw development of features like integration with payment systems.",
-          "Worked on the development lifecycle from analysis to deployment."
+          "Worked on the development lifecycle from analysis to deployment.",
         ],
       },
 
       {
         role: "Senior SCM Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2018 - Mar 2022",
         bullets: [
@@ -451,7 +447,7 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
       {
@@ -464,12 +460,12 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
     ],
 
-     education: {
+    education: {
       degree: "Bachelor's of Science in IT",
       university: "National University of Sciences & Technology",
       date: "2015 – 2019",
@@ -477,16 +473,12 @@ export const teamMembers: TeamMember[] = [
     },
   },
 
-
-
-
-
-     {
+  {
     id: "4",
     name: "Umer Saleem",
     position: "Squad Leader of Quality Assurance",
     image: "/assets/team/member4.svg",
-    cover: "/assets/team/cover1.svg",
+    cover: "/assets/team/m4D.svg",
     slug: "umer-saleem",
 
     skills: [
@@ -510,7 +502,7 @@ export const teamMembers: TeamMember[] = [
       "Security Enhanced Linux (SELinux), Iptables",
       "Nginx, Squid Proxy Server, Mail Server (Sendmail/Postfix), DHCP Server",
       "Grafana",
-      "OpenNMS"
+      "OpenNMS",
     ],
 
     domains: ["Azure", "AWS", "GCP", "Hetzner", "Digital Ocean"],
@@ -533,7 +525,7 @@ export const teamMembers: TeamMember[] = [
       },
       {
         role: "Principal DevOps Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Dec 2023 – Mar 2024",
         bullets: [
@@ -541,13 +533,13 @@ export const teamMembers: TeamMember[] = [
           "Led third-party integrations and ensured solution scalability.",
           "Managed the development lifecycle, from design to deployment.",
           "Coordinated with teams to ensure alignment with business goals.",
-          "Specialized in solution design, team management, and architecture."
+          "Specialized in solution design, team management, and architecture.",
         ],
       },
 
       {
         role: "Technical Lead (SCM & Systems Security)",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Digitify",
         duration: "Mar 2023 - Nov 2023",
         bullets: [
@@ -555,13 +547,13 @@ export const teamMembers: TeamMember[] = [
           "Collaborated with senior management to define project scopes, timelines, and deliverables.",
           "Implemented proof of concepts on various technology trends.",
           "Assisted in presenting business ideas and innovative solutions to senior management.",
-          "Worked closely with stakeholders to define and drive product development."
+          "Worked closely with stakeholders to define and drive product development.",
         ],
       },
 
       {
         role: "Assistant Manager SCM",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2022 - Jan 2023",
         bullets: [
@@ -569,13 +561,13 @@ export const teamMembers: TeamMember[] = [
           "Managed development teams and conducted code reviews.",
           "Designed and implemented core transaction and payment modules.",
           "Oversaw development of features like integration with payment systems.",
-          "Worked on the development lifecycle from analysis to deployment."
+          "Worked on the development lifecycle from analysis to deployment.",
         ],
       },
 
       {
         role: "Senior SCM Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2018 - Mar 2022",
         bullets: [
@@ -583,7 +575,7 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
       {
@@ -596,12 +588,12 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
     ],
 
-     education: {
+    education: {
       degree: "Bachelor's of Science in IT",
       university: "National University of Sciences & Technology",
       date: "2015 – 2019",
@@ -609,14 +601,12 @@ export const teamMembers: TeamMember[] = [
     },
   },
 
-
-
-       {
+  {
     id: "5",
     name: "Aqeel Javed",
     position: "Squad Leader of Frontend",
     image: "/assets/team/member5.svg",
-    cover: "/assets/team/cover1.svg",
+    cover: "/assets/team/m4D.svg",
     slug: "aqeel-javed",
 
     skills: [
@@ -640,7 +630,7 @@ export const teamMembers: TeamMember[] = [
       "Security Enhanced Linux (SELinux), Iptables",
       "Nginx, Squid Proxy Server, Mail Server (Sendmail/Postfix), DHCP Server",
       "Grafana",
-      "OpenNMS"
+      "OpenNMS",
     ],
 
     domains: ["Azure", "AWS", "GCP", "Hetzner", "Digital Ocean"],
@@ -663,7 +653,7 @@ export const teamMembers: TeamMember[] = [
       },
       {
         role: "Principal DevOps Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Dec 2023 – Mar 2024",
         bullets: [
@@ -671,13 +661,13 @@ export const teamMembers: TeamMember[] = [
           "Led third-party integrations and ensured solution scalability.",
           "Managed the development lifecycle, from design to deployment.",
           "Coordinated with teams to ensure alignment with business goals.",
-          "Specialized in solution design, team management, and architecture."
+          "Specialized in solution design, team management, and architecture.",
         ],
       },
 
       {
         role: "Technical Lead (SCM & Systems Security)",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Digitify",
         duration: "Mar 2023 - Nov 2023",
         bullets: [
@@ -685,13 +675,13 @@ export const teamMembers: TeamMember[] = [
           "Collaborated with senior management to define project scopes, timelines, and deliverables.",
           "Implemented proof of concepts on various technology trends.",
           "Assisted in presenting business ideas and innovative solutions to senior management.",
-          "Worked closely with stakeholders to define and drive product development."
+          "Worked closely with stakeholders to define and drive product development.",
         ],
       },
 
       {
         role: "Assistant Manager SCM",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2022 - Jan 2023",
         bullets: [
@@ -699,13 +689,13 @@ export const teamMembers: TeamMember[] = [
           "Managed development teams and conducted code reviews.",
           "Designed and implemented core transaction and payment modules.",
           "Oversaw development of features like integration with payment systems.",
-          "Worked on the development lifecycle from analysis to deployment."
+          "Worked on the development lifecycle from analysis to deployment.",
         ],
       },
 
       {
         role: "Senior SCM Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2018 - Mar 2022",
         bullets: [
@@ -713,7 +703,7 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
       {
@@ -726,12 +716,12 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
     ],
 
-     education: {
+    education: {
       degree: "Bachelor's of Science in IT",
       university: "National University of Sciences & Technology",
       date: "2015 – 2019",
@@ -739,12 +729,12 @@ export const teamMembers: TeamMember[] = [
     },
   },
 
-        {
+  {
     id: "5",
     name: "Sara Majid",
     position: "Squad Leader of Frontend",
     image: "/assets/team/member6.svg",
-    cover: "/assets/team/cover1.svg",
+    cover: "/assets/team/m4D.svg",
     slug: "sara-majid",
 
     skills: [
@@ -768,7 +758,7 @@ export const teamMembers: TeamMember[] = [
       "Security Enhanced Linux (SELinux), Iptables",
       "Nginx, Squid Proxy Server, Mail Server (Sendmail/Postfix), DHCP Server",
       "Grafana",
-      "OpenNMS"
+      "OpenNMS",
     ],
 
     domains: ["Azure", "AWS", "GCP", "Hetzner", "Digital Ocean"],
@@ -791,7 +781,7 @@ export const teamMembers: TeamMember[] = [
       },
       {
         role: "Principal DevOps Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Dec 2023 – Mar 2024",
         bullets: [
@@ -799,13 +789,13 @@ export const teamMembers: TeamMember[] = [
           "Led third-party integrations and ensured solution scalability.",
           "Managed the development lifecycle, from design to deployment.",
           "Coordinated with teams to ensure alignment with business goals.",
-          "Specialized in solution design, team management, and architecture."
+          "Specialized in solution design, team management, and architecture.",
         ],
       },
 
       {
         role: "Technical Lead (SCM & Systems Security)",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Digitify",
         duration: "Mar 2023 - Nov 2023",
         bullets: [
@@ -813,13 +803,13 @@ export const teamMembers: TeamMember[] = [
           "Collaborated with senior management to define project scopes, timelines, and deliverables.",
           "Implemented proof of concepts on various technology trends.",
           "Assisted in presenting business ideas and innovative solutions to senior management.",
-          "Worked closely with stakeholders to define and drive product development."
+          "Worked closely with stakeholders to define and drive product development.",
         ],
       },
 
       {
         role: "Assistant Manager SCM",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2022 - Jan 2023",
         bullets: [
@@ -827,13 +817,13 @@ export const teamMembers: TeamMember[] = [
           "Managed development teams and conducted code reviews.",
           "Designed and implemented core transaction and payment modules.",
           "Oversaw development of features like integration with payment systems.",
-          "Worked on the development lifecycle from analysis to deployment."
+          "Worked on the development lifecycle from analysis to deployment.",
         ],
       },
 
       {
         role: "Senior SCM Engineer",
-         icon: "/assets/team/icon1.svg",
+        icon: "/assets/team/icon1.svg",
         company: "Beyon Money",
         duration: "Mar 2018 - Mar 2022",
         bullets: [
@@ -841,7 +831,7 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
       {
@@ -854,16 +844,16 @@ export const teamMembers: TeamMember[] = [
           "Integrated with banks, processors, and courier partners.",
           "Developed EKYC, Remittance, and Card modules.",
           "Implemented microservices architecture and managed cloud deployments.",
-          "Focused on transaction management and seamless user experience."
+          "Focused on transaction management and seamless user experience.",
         ],
       },
     ],
 
-     education: {
+    education: {
       degree: "Bachelor's of Science in IT",
       university: "National University of Sciences & Technology",
       date: "2015 – 2019",
       icon: "/assets/icons/education.svg",
     },
   },
-]
+];

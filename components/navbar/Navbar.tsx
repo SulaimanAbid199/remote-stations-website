@@ -333,7 +333,6 @@ export default function Navbar() {
     { name: "Competencies", href: "/competencies" },
     { name: "Career", href: "/career" },
     { name: "Contact Us", href: "/contact" },
-    { name: "Team", href: "/team" },
   ];
 
   const companyDropdownItems = [

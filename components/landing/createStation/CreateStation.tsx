@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const steps = [
   {
@@ -29,6 +30,8 @@ const steps = [
 
 export default function CreateStation() {
   const [activeStep, setActiveStep] = useState<number>(2);
+  const router = useRouter();
+
 
   return (
     <section className="max-w-[1600px] mx-auto">
@@ -88,13 +91,13 @@ export default function CreateStation() {
             <p className="text-gray-600 text-base leading-relaxed">
               {steps[activeStep - 1].content}
             </p>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-full px-6 py-3 transition">
-              Read More
+            <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-full px-6 py-3 transition cursor-pointer"
+             onClick={() => router.push("/contact")}>
+              Book a Discovery Call
             </button>
           </div>
         </div>
       )}
-
       </div>
     </section>
   );

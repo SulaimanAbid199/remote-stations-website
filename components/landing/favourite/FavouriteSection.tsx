@@ -39,7 +39,7 @@ export default function FavouriteSection() {
 
             {/* Right Image Section */}
             <div className="flex items-center justify-center">
-              <div className="relative w-full h-full ">
+              <div className="relative ">
                 <img
                   src="/assets/favourite/fvrt1.svg"
                   alt="Professional team member"
