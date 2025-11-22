@@ -84,7 +84,7 @@ const Section = ({ title, children }: any) => {
 export function Portfolio({ member }: PortfolioProps) {
   return (
     <div className="bg-[#FBFBFB] pt-30 pb-20">
-      <div className="md:w-[94%] sm:w-[96%] w-[96%] max-w-[1600px] mx-auto">
+      <div className="md:w-[94%] sm:w-[94%] w-[94%] max-w-[1600px] mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] gap-10">
 
         {/* LEFT — IMAGE + BUTTON */}

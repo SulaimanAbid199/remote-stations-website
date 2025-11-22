@@ -21,7 +21,7 @@
 //   ];
 
 //   return (
-//     <header className="bg-black text-white shadow-md rounded-4xl overflow-hidden fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[96%] w-[96%] mx-auto z-50 max-w-[1600px] mx-auto">
+//     <header className="bg-black text-white shadow-md rounded-4xl overflow-hidden fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px] mx-auto">
 //       <div className="mx-4 sm:mx-6 lg:mx-12">
 //         <div className="flex justify-between items-center h-16">
 //           <div className="flex items-center gap-2">
@@ -158,8 +158,8 @@
 //   }, [pathname]);
 
 //   return (
-//     // <header className="bg-black text-white shadow-md rounded-4xl overflow-hidden fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[96%] w-[96%] mx-auto z-50 max-w-[1600px]">
-//     <header className="bg-black text-white shadow-md rounded-4xl fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[96%] w-[96%] mx-auto z-50 max-w-[1600px]">
+//     // <header className="bg-black text-white shadow-md rounded-4xl overflow-hidden fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px]">
+//     <header className="bg-black text-white shadow-md rounded-4xl fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px]">
 //       <div className="mx-4 sm:mx-6 lg:mx-12">
 //         <div className="flex justify-between items-center h-16">
 //           {/* Logo */}
@@ -389,7 +389,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-black text-white shadow-md rounded-4xl fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[96%] w-[96%] mx-auto z-50 max-w-[1600px]">
+    <header className="bg-black text-white shadow-md rounded-4xl fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] sm:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px]">
       <div className="mx-4 sm:mx-6 lg:mx-12">
         <div className="flex justify-between items-center h-16">
           <Link href="/" onClick={handleLinkClick}>

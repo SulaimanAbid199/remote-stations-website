@@ -1,15 +1,50 @@
-
-
 "use client";
-
 import { useState } from "react";
-import Image from "next/image";
-
+import Image from "next/image"
 interface Reason {
   title: string;
   icon: string;
   description: string;
 }
+
+
+export default function ReasonsSection() {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  return (
+    <section className="text-center max-w-[1600px] mx-auto">
+      <h2 className="text-sm text-gray-500">Structure That Mirrors Your In‑House Culture</h2>
+      <h1 className="text-3xl font-bold mt-1">
+        10 <span className="text-[#FF6600]">Reasons</span> To Choose Remote Stations
+      </h1>
+      <div className="flex flex-wrap justify-center gap-8 mt-12">
+        {reasons.map((item, index) => (
+          <div
+            key={index}
+            className="relative group flex flex-col items-center w-70"
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            <div className="w-40 h-40 rounded-full bg-white shadow-md flex items-center justify-center border-t-6 border-[#FF6600] relative">
+              <Image src={item.icon} alt={item.title} width={60} height={60} className="object-contain" />
+            </div>
+
+            <div className="w-0 h-0 border-l-24 border-r-24 border-t-[24px] border-transparent border-t-[#FF6600] mt-4"></div>
+
+            <p className="font-medium mt-2 text-center">{item.title}</p>
+
+            {hovered === index && (
+              <div className="absolute top-6 w-64 p-4 bg-gray-100 rounded-xl shadow-lg text-sm animate-fadeIn z-20">
+                {item.description}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 const reasons: Reason[] = [
   {
@@ -64,42 +99,3 @@ const reasons: Reason[] = [
     description: "We don’t believe in shadowing models, our experts take direct ownership of their work from day one.",
   },
 ];
-
-export default function ReasonsSection() {
-  const [hovered, setHovered] = useState<number | null>(null);
-
-  return (
-    <section className="text-center max-w-[1600px] mx-auto">
-      <h2 className="text-sm text-gray-500">Structure That Mirrors Your In‑House Culture</h2>
-      <h1 className="text-3xl font-bold mt-1">
-        10 <span className="text-[#FF6600]">Reasons</span> To Choose Remote Stations
-      </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-4 mt-2 ">
-        {reasons.map((item, index) => (
-          <div
-            key={index}
-            className="relative group flex flex-col items-center mt-10"
-            onMouseEnter={() => setHovered(index)}
-            onMouseLeave={() => setHovered(null)}
-          >
-
-            <div className="w-40 h-40 rounded-full bg-white shadow-md flex items-center justify-center border-t-6 border-[#FF6600] relative">
-              <Image src={item.icon} alt={item.title} width={60} height={60} className="object-contain" />
-            </div>
-
-            <div className="w-0 h-0 border-l-24 border-r-24 border-t-[24px] border-transparent border-t-[#FF6600] mt-4"></div>
-
-            <p className="font-medium mt-2">{item.title}</p>
-
-            {hovered === index && (
-              <div className="absolute top-6 w-56 p-4 bg-gray-100 rounded-xl shadow-lg text-sm animate-fadeIn z-20">
-                {item.description}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}

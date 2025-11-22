@@ -44,7 +44,7 @@ export default function CreateStation() {
         </p>
         </div>
       {/* LEFT SIDE */}
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
         <div className="space-y-12">
           {steps.map((step) => (
@@ -84,7 +84,7 @@ export default function CreateStation() {
               alt={steps[activeStep - 1].title}
               width={500}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover"
             />
           </div>
           <div className="md:w-1/2 space-y-4">
