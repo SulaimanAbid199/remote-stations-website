@@ -16,42 +16,42 @@ const competencies: CompetencyCard[] = [
     title: "AI & Data Science",
     description:
       "Building intelligent, data-driven solutions that transform complex information into actionable insights and seamless user experiences.",
-    image: "/assets/Competencies/compet11.jpeg",
+    image: "/assets/Competencies/compet1.svg",
   },
   {
     id: "2",
     title: "Frontend",
     description:
       "Crafting responsive, user-friendly interfaces that deliver seamless experiences across all devices.",
-    image: "/assets/Competencies/compet11.jpeg",
+    image: "/assets/Competencies/compet2.svg",
   },
   {
     id: "3",
     title: "Backend",
     description:
       "Building robust and scalable server-side systems to power your applications securely and efficiently.",
-    image: "/assets/Competencies/compet11.jpeg",
+    image: "/assets/Competencies/compet3.jpeg",
   },
   {
     id: "4",
     title: "UI UX",
     description:
       "Crafting intuitive, user-centered designs that elevate experiences, foster engagement, and bring ideas to life.",
-    image: "/assets/Competencies/compet11.jpeg",
+    image: "/assets/Competencies/compet4.svg",
   },
   {
     id: "5",
     title: "Project Excellence",
     description:
       "Delivering flawless, data-driven products through rigorous testing and structured project management, from initial concept to successful completion.",
-    image: "/assets/Competencies/compet11.jpeg",
+    image: "/assets/Competencies/compet5.svg",
   },
   {
     id: "6",
     title: "DevOps",
     description:
       "Streamlining development and operations for faster deployments, better collaboration, and continuous integration.",
-    image: "/assets/Competencies/compet11.jpeg",
+    image: "/assets/Competencies/compet6.svg",
   },
 ];
 
