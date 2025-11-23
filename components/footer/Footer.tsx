@@ -38,14 +38,7 @@ export default function Footer() {
           <div>
             <h3 className="text-md font-semibold mb-4">Explore Links</h3>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  href=""
-                  className=" text-sm  hover:text-white transition-colors"
-                >
-                  Our Services
-                </Link>
-              </li>
+             
               <li>
                 <Link
                   href="/team"

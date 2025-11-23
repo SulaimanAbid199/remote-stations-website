@@ -1,16 +1,19 @@
+"use client"
+
 import { JobCard } from "./JobCard"
 import { JOBS } from "./jobs"
-
-interface Job {
-  id: number
-  title: string
-  type: string
-  experience: string
-  location: string
-}
-
+import { motion } from "framer-motion"
 
 export function CareerPage() {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
   return (
     <div className="max-w-[1600px] mx-auto">
       <div className="mb-8">
@@ -21,11 +24,16 @@ export function CareerPage() {
       </div>
       <div className="border-b border-gray-200 mb-8" />
 
-      <div className="space-y-8">
-        {JOBS.map((job) => (
-          <JobCard key={job.id} job={job} />
+      <motion.div
+        className="space-y-8"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        {JOBS.map((job, index) => (
+          <JobCard key={job.id} job={job} custom={index} />
         ))}
-      </div>
+      </motion.div>
     </div>
   )
 }
