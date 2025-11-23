@@ -45,7 +45,7 @@ export default function CompetenciesHero() {
                         </div>
 
                         <div>
-                            <button className="bg-[#FF6600] hover:bg-[#FF6600] text-white text-sm font-semibold rounded-full px-6 py-3 transition mt-4">
+                            <button className="bg-[#FF6600] hover:bg-[#FF6600] text-white text-sm font-semibold rounded-full px-6 py-3 transition mt-4 cursor-pointer">
                                 Explore Services
                             </button>
                         </div>

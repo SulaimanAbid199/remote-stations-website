@@ -2,17 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 export default function Footer() {
   return (
+    
     <footer>
       <div className="bg-[#1C180D] text-white">
         <div className="grid grid-cols-1 md:grid-cols-4  py-16 gap-12 md:w-[94%] sm:w-[94%] w-[94%] mx-auto max-w-[1600px] mx-auto">
           <div className="flex flex-col">
+              <Link href="/">
             <Image
               src="/assets/logo/logo.svg"
               alt="logo"
               width={150}
               height={150}
-              className="rounded-md"
+              className="rounded-md cursor-pointer"
+
             />
+            </Link>
           </div>
           <div>
             <h3 className="text-md font-semibold mb-4">Useful Links</h3>

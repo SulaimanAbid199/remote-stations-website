@@ -52,7 +52,7 @@ export function JobCard({ job, custom = 0 }: JobCardProps) {
 
         <button
           onClick={() => router.push(`/career/${slug}`)}
-          className="px-8 py-2 rounded-full border-2 border-[#FF6600] text-[#FF6600] font-semibold hover:bg-orange-50 transition-colors whitespace-nowrap"
+          className="px-8 py-2 rounded-full border-2 border-[#FF6600] text-[#FF6600] font-semibold hover:bg-orange-50 transition-colors whitespace-nowrap cursor-pointer"
         >
           Apply Now
         </button>

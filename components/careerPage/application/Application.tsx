@@ -158,7 +158,7 @@ export default function Application() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[#FF6600] hover:bg-[#FF6600] text-white font-semibold py-3 px-6 rounded-full transition disabled:opacity-50 disabled:cursor-not-allowed mt-8"
+              className="w-full bg-[#FF6600] hover:bg-[#FF6600] text-white font-semibold py-3 px-6 rounded-full transition disabled:opacity-50 disabled:cursor-not-allowed mt-8 cursor-pointer"
             >
               {isSubmitting ? "Submitting..." : "Submit Application"}
             </button>

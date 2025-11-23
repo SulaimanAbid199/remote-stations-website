@@ -171,7 +171,7 @@ export default function ContactForm() {
         disabled={isSubmitting}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-full bg-[#FF6600] hover:bg-[#FF6600] disabled:bg-orange-400 text-white font-semibold py-4 rounded-full transition duration-200 transform disabled:cursor-not-allowed"
+        className="w-full bg-[#FF6600] hover:bg-[#FF6600] disabled:bg-orange-400 text-white font-semibold py-4 rounded-full transition duration-200 transform disabled:cursor-not-allowed cursor-pointer"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </motion.button>

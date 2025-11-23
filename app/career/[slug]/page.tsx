@@ -30,7 +30,7 @@ export default function JobDetailPage() {
       <div className="md:w-[94%] sm:w-[94%] w-[94%] mx-auto max-w-[1600px]">
         <button
           onClick={() => router.push("/career")}
-          className="flex items-center gap-2 text-sm font-sm text-[#282938] hover:underline mb-8"
+          className="flex items-center gap-2 text-sm font-sm text-[#282938] hover:underline mb-8 cursor-pointer"
         >
           <Image
             src="/assets/career/back.svg"

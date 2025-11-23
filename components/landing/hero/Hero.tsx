@@ -96,7 +96,7 @@ export default function Hero() {
           quality. Lock your Remote Stations today!
         </p>
 
-        <button className="mt-8 flex items-center gap-2 border border-[#FF6600] text-[#FF6600] font-semibold rounded-full px-6 py-3 hover:bg-[#FF6600] hover:text-white transition">
+        <button className="mt-8 flex items-center gap-2 border border-[#FF6600] text-[#FF6600] font-semibold rounded-full px-6 py-3 hover:bg-[#FF6600] hover:text-white transition cursor-pointer">
            <Wifi className="w-5 h-5 -rotate-30" />
           CREATE YOUR REMOTE STATION
         </button>
@@ -150,14 +150,14 @@ export default function Hero() {
 
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#FF6600] text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20"
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#FF6600] text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20 cursor-pointer"
           >
             <ChevronLeft />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#FF6600] text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20"
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#FF6600] text-white rounded-full p-2 shadow hover:bg-orange-600 transition z-20 cursor-pointer"
           >
             <ChevronRight />
           </button>

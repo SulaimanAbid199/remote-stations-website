@@ -63,7 +63,7 @@ export default function FAQSection() {
             setActiveTab("general");
             setOpenIndex(null);
           }}
-          className={`px-8 py-3 rounded-lg font-medium border transition ${
+          className={` cursor-pointer px-8 py-3 rounded-lg font-medium border transition ${
             activeTab === "general"
               ? "bg-[#FF6600] text-white border-[#FF6600]"
               : "text-[#FF6600] border-[#FF6600]"
@@ -77,7 +77,7 @@ export default function FAQSection() {
             setActiveTab("help");
             setOpenIndex(null);
           }}
-          className={`px-8 py-3 rounded-lg font-medium border transition ${
+          className={`cursor-pointer px-8 py-3 rounded-lg font-medium border transition ${
             activeTab === "help"
               ? "bg-[#FF6600] text-white border-[#FF6600]"
               : "text-[#FF6600] border-[#FF6600]"

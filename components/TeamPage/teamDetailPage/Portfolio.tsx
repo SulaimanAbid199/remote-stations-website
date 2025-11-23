@@ -97,7 +97,7 @@ export function Portfolio({ member }: PortfolioProps) {
             />
           </div>
 
-          <button className="w-[230px] px-8 py-3 bg-[#FF6600] text-white rounded-full hover:bg-[#E65A00] transition">
+          <button className="w-[230px] px-8 py-3 bg-[#FF6600] text-white rounded-full hover:bg-[#E65A00] transition cursor-pointer">
             Hire Now
           </button>
         </div>
