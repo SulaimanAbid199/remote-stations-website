@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import FAQSection from "@/components/landing/faqSection/FAQSection";
 
-export default function Contact() {
+export default function FAQs() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
