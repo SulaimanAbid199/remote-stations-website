@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 const steps = [
   {
@@ -36,12 +37,12 @@ export default function CreateStation() {
   return (
     <section className="max-w-[1600px] mx-auto">
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-[#434343] mb-2">
+        <AnimatedText as="h2" className="text-2xl md:text-3xl font-bold text-[#434343] mb-2" speed={0.02}>
           Create Station
-        </h2>
-        <p className="text-[#767676] text-sm mb-10">
+        </AnimatedText>
+        <AnimatedText as="p" className="text-[#767676] text-sm mb-10" delay={0.3} speed={0.015}>
           Save your time, efforts and cost. Build your Remote Station in 3 simple steps.
-        </p>
+        </AnimatedText>
       </div>
 
       <motion.div

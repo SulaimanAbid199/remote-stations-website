@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 interface Category {
   name: string;
@@ -75,16 +78,16 @@ const TalentCategories = () => {
   return (
       <div className="max-w-[1600px] mx-auto">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-[#434343] mb-4">
+          <AnimatedText as="h1" className="text-4xl font-bold text-[#434343] mb-4" speed={0.02}>
             Talent Categories We Offer
-          </h1>
-          <p className="text-md text-[#767676]">
+          </AnimatedText>
+          <AnimatedText as="p" className="text-md text-[#767676]" delay={0.3} speed={0.015}>
             Discover the{" "}
             <span className="text-[#FF6600] font-semibold">
               key resource categories
             </span>{" "}
             that power your projects
-          </p>
+          </AnimatedText>
         </div>
         <div className="overflow-x-auto rounded-4xl border border-[#E6E9F5] shadow-lg bg-white">
           <table className="w-full">

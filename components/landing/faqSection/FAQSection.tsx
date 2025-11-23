@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 const generalFaqs = [
   "What is a Remote Station?",
@@ -34,9 +35,9 @@ export default function FAQSection() {
 
   return (
     <section className="max-w-[1600px] mx-auto">
-      <h2 className="text-center text-3xl md:text-4xl font-bold mb-8">
+      <AnimatedText as="h2" className="text-center text-3xl md:text-4xl font-bold mb-8" speed={0.02}>
         Frequently Asked Questions
-      </h2>
+      </AnimatedText>
 
       {/* Tabs */}
       <div className="flex justify-center gap-4 mb-10">
@@ -77,7 +78,7 @@ export default function FAQSection() {
           className="space-y-4"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0 }}
           variants={{
             hidden: {},
             show: {

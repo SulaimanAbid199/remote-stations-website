@@ -3,6 +3,7 @@
 import { JobCard } from "./JobCard"
 import { JOBS } from "./jobs"
 import { motion } from "framer-motion"
+import AnimatedText from "@/components/ui/AnimatedText"
 
 export function CareerPage() {
   const containerVariants = {
@@ -17,10 +18,12 @@ export function CareerPage() {
   return (
     <div className="max-w-[1600px] mx-auto">
       <div className="mb-8">
-        <p className="text-sm text-[#767676] mb-2">Join Us</p>
-        <h1 className="text-3xl text-[#434343] font-bold">
+        <AnimatedText as="p" className="text-sm text-[#767676] mb-2" speed={0.02}>
+          Join Us
+        </AnimatedText>
+        <AnimatedText as="h1" className="text-3xl text-[#434343] font-bold" delay={0.2} speed={0.02}>
           Available <span className="text-[#FF6600]">Jobs</span>
-        </h1>
+        </AnimatedText>
       </div>
       <div className="border-b border-gray-200 mb-8" />
 

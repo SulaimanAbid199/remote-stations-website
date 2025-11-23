@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 interface ExperienceItem {
   role: string;
@@ -39,16 +41,36 @@ const Section = ({ title, children }: any) => {
   const [open, setOpen] = useState(true);
 
   return (
-
-
-    <div className="pb-6">
+    <motion.div
+      className="pb-6"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0 }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6 },
+        },
+      }}
+    >
       {/* Header */}
       <div className="flex justify-between items-center border-b border-b-[#E5E5E5] pb-6">
-        <h2 className="text-xl font-semibold">{title}</h2>
+        <AnimatedText
+          as="h2"
+          className="text-xl font-semibold"
+          speed={0.02}
+          delay={0.1}
+        >
+          {title}
+        </AnimatedText>
 
-        <button
+        <motion.button
           onClick={() => setOpen(!open)}
           className="cursor-pointer"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
           {open ? (
             <svg
@@ -73,11 +95,20 @@ const Section = ({ title, children }: any) => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
             </svg>
           )}
-        </button>
+        </motion.button>
       </div>
 
-      {open && <div className="mt-4">{children}</div>}
-    </div>
+      {open && (
+        <motion.div
+          className="mt-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          {children}
+        </motion.div>
+      )}
+    </motion.div>
   );
 };
 
@@ -88,62 +119,143 @@ export function Portfolio({ member }: PortfolioProps) {
       <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] gap-10">
 
         {/* LEFT — IMAGE + BUTTON */}
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <div className="h-60 md:h-60 rounded-3xl overflow-hidden shadow-xl border">
+        <motion.div
+          className="flex flex-col items-center md:items-start gap-4"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            className="h-60 md:h-60 rounded-3xl overflow-hidden shadow-xl border"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <img
               src={member.cover}
               alt={member.name}
-              className=""
+              // className="w-full h-full object-cover"
             />
-          </div>
+          </motion.div>
 
-          <button className="w-[230px] px-8 py-3 bg-[#FF6600] text-white rounded-full hover:bg-[#E65A00] transition cursor-pointer">
+          <motion.button
+            className="w-[230px] px-8 py-3 bg-[#FF6600] text-white rounded-full hover:bg-[#E65A00] transition cursor-pointer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Hire Now
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         {/* RIGHT SIDE CONTENT */}
         <div className="space-y-10">
 
           {/* NAME + ROLE */}
-          <div className=" pb-6">
-            <h1 className="text-3xl text-[#434343] font-bold">{member.name}</h1>
-            <p className=" mt-1">{member.position}</p>
-          </div>
+          <motion.div
+            className="pb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <AnimatedText
+              as="h1"
+              className="text-3xl text-[#434343] font-bold"
+              speed={0.02}
+            >
+              {member.name}
+            </AnimatedText>
+            <motion.p
+              className="mt-1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {member.position}
+            </motion.p>
+          </motion.div>
 
           {/* SKILLS */}
           <Section title="Skills">
-            <div className="flex flex-wrap gap-3 pt-4">
+            <motion.div
+              className="flex flex-wrap gap-3 pt-4"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.08,
+                    delayChildren: 0.2,
+                  },
+                },
+              }}
+            >
               {member.skills.map((skill, idx) => (
-                <span
+                <motion.span
                   key={idx}
                   className="px-4 py-2 bg-gray-50 border rounded-full border-[#E5E5E5] text-sm text-[#434343]"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8, y: 10 },
+                    visible: { opacity: 1, scale: 1, y: 0 },
+                  }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </Section>
 
           {/* DOMAINS */}
           <Section title="Domains & Expertise">
-            <div className="flex flex-wrap gap-3 pt-4">
+            <motion.div
+              className="flex flex-wrap gap-3 pt-4"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.08,
+                    delayChildren: 0.2,
+                  },
+                },
+              }}
+            >
               {member.domains.map((domain, i) => (
-                <span
+                <motion.span
                   key={i}
                   className="px-4 py-2 border border-orange-300 rounded-full text-sm text-[#FF6600]"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8, y: 10 },
+                    visible: { opacity: 1, scale: 1, y: 0 },
+                  }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {domain}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </Section>
 
           {/* BIO */}
           <Section title="Bio">
-            <div className="">
+            <motion.div
+              className=""
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <p className="leading-7 text-sm pt-2">{member.bio}</p>
-            </div>
+            </motion.div>
           </Section>
 
           {/* EXPERIENCE */}
@@ -151,22 +263,58 @@ export function Portfolio({ member }: PortfolioProps) {
             <div className="relative">
 
               {/* Vertical Dashed Line */}
-              <div className="absolute left-4 top-8  h-full border-l-1 border-dashed"></div>
+              <motion.div
+                className="absolute left-4 top-8 h-full border-l border-dashed"
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              />
 
-              <div className="flex flex-col gap-10 pl-10">
+              <motion.div
+                className="flex flex-col gap-10 pl-10"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.15,
+                      delayChildren: 0.3,
+                    },
+                  },
+                }}
+              >
                 {member.experience.map((exp, i) => (
-                  <div key={i} className="relative">
-
+                  <motion.div
+                    key={i}
+                    className="relative"
+                    variants={{
+                      hidden: { opacity: 0, x: -30 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                  >
                     {/* Dot for each item */}
-                    <div className="absolute -left-[29px] top-8 w-3 h-3 bg-black border-2 rounded-full"></div>
+                    <motion.div
+                      className="absolute -left-[29px] top-8 w-3 h-3 bg-black border-2 rounded-full"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true, amount: 0 }}
+                      transition={{ duration: 0.3, delay: 0.4 + i * 0.15 }}
+                    />
 
                     <div className="p-4">
-                      <div className="md:flex items-start justify-between ">
+                      <div className="md:flex items-start justify-between">
                         <div className="flex items-center gap-4">
-                          <img
+                          <motion.img
                             src={exp.icon}
                             alt={exp.role}
                             className="w-10 h-10 object-contain"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true, amount: 0 }}
+                            transition={{ duration: 0.4, delay: 0.5 + i * 0.15 }}
                           />
 
                           <div>
@@ -175,23 +323,51 @@ export function Portfolio({ member }: PortfolioProps) {
                           </div>
                         </div>
 
-                        <p className="text-[#FF6600] font-medium whitespace-nowrap">
+                        <motion.p
+                          className="text-[#FF6600] font-medium whitespace-nowrap"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true, amount: 0 }}
+                          transition={{ duration: 0.4, delay: 0.6 + i * 0.15 }}
+                        >
                           {exp.duration}
-                        </p>
+                        </motion.p>
                       </div>
 
-                      <ul className="mt-4 space-y-2 text-slate-600">
+                      <motion.ul
+                        className="mt-4 space-y-2 text-slate-600"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0 }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: {
+                            opacity: 1,
+                            transition: {
+                              staggerChildren: 0.05,
+                              delayChildren: 0.3 + i * 0.15,
+                            },
+                          },
+                        }}
+                      >
                         {exp.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex gap-2">
+                          <motion.li
+                            key={idx}
+                            className="flex gap-2"
+                            variants={{
+                              hidden: { opacity: 0, x: -10 },
+                              visible: { opacity: 1, x: 0 },
+                            }}
+                          >
                             • <span>{bullet}</span>
-                          </li>
+                          </motion.li>
                         ))}
-                      </ul>
+                      </motion.ul>
                     </div>
 
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </Section>
 
@@ -199,10 +375,14 @@ export function Portfolio({ member }: PortfolioProps) {
           {/* EDUCATION */}
           <Section title="Education">
             {member.education && (
-
-              <div className="flex items-start justify-between">
+              <motion.div
+                className="flex items-start justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <div className="flex items-center gap-4 mt-4">
-
                   <div>
                     <h3 className="font-semibold text-md">
                       {member.education.degree}
@@ -214,8 +394,7 @@ export function Portfolio({ member }: PortfolioProps) {
                 <p className="text-[#FF6600] font-medium whitespace-nowrap mt-4">
                   {member.education.date}
                 </p>
-              </div>
-
+              </motion.div>
             )}
           </Section>
 

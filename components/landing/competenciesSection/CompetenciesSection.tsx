@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import AnimatedText from "@/components/ui/AnimatedText"
 
 interface CompetencyCard {
   id: string
@@ -60,9 +61,9 @@ export function CompetenciesSection() {
   return (
     <div className="max-w-[1600px] mx-auto px-4">
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-3xl font-bold">
+        <AnimatedText as="h2" className="text-4xl md:text-3xl font-bold" speed={0.02}>
           Our <span className="text-[#FF6600]">Competencies</span>
-        </h2>
+        </AnimatedText>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">

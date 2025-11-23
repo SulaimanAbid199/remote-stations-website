@@ -48,6 +48,7 @@
 import ContactForm from "./ContactForm"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import AnimatedText from "@/components/ui/AnimatedText"
 
 export const metadata = {
   title: "Contact Us",
@@ -78,16 +79,22 @@ export default function ContactSection() {
       initial="hidden"
       animate="visible"
     >
-      <motion.h1
+      <AnimatedText
+        as="h1"
         className="text-2xl md:text-3xl font-bold text-center mb-2 text-[#2A2A2A]"
-        variants={itemVariants}
+        speed={0.02}
       >
         Book a discovery call
-      </motion.h1>
+      </AnimatedText>
 
-      <motion.p className="mb-12 text-center" variants={itemVariants}>
+      <AnimatedText
+        as="p"
+        className="mb-12 text-center"
+        delay={0.3}
+        speed={0.015}
+      >
         We're passionate about your success. We're just a click away
-      </motion.p>
+      </AnimatedText>
 
       <motion.div
         className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"

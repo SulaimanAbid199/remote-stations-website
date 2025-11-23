@@ -3,6 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react"
 import Image from "next/image"
 import { X } from "lucide-react"
+import AnimatedText from "@/components/ui/AnimatedText"
 
 interface FormData {
   name: string
@@ -64,7 +65,13 @@ export default function Application() {
 
   return (
     <div className="bg-white rounded-4xl shadow-2xl mt-10 p-12">
-      <h1 className="text-3xl font-bold text-center mb-12 text-[#2A2A2A]">Apply here</h1>
+      <AnimatedText
+        as="h1"
+        className="text-3xl font-bold text-center mb-12 text-[#2A2A2A]"
+        speed={0.02}
+      >
+        Apply here
+      </AnimatedText>
 
       <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-8 md:gap-12">
         <div className="flex items-center justify-center">

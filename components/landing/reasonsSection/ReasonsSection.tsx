@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 interface Reason {
   title: string;
@@ -14,11 +15,13 @@ export default function ReasonsSection() {
 
   return (
     <section className="text-center max-w-[1600px] mx-auto">
-      <h2 className="text-sm text-gray-500">Structure That Mirrors Your In-House Culture</h2>
+      <AnimatedText as="h2" className="text-sm text-gray-500" speed={0.02}>
+        Structure That Mirrors Your In-House Culture
+      </AnimatedText>
 
-      <h1 className="text-3xl font-bold mt-1">
+      <AnimatedText as="h1" className="text-3xl font-bold mt-1" delay={0.3} speed={0.02}>
         10 <span className="text-[#FF6600]">Reasons</span> To Choose Remote Stations
-      </h1>
+      </AnimatedText>
       <motion.div
         className="flex flex-wrap justify-center gap-8 mt-12"
         initial="hidden"

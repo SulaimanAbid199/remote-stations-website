@@ -22,6 +22,7 @@
 import { motion } from "framer-motion"
 import { teamMembers } from "./teamDetailPage/teamMembers"
 import TeamCard from "./TeamCards"
+import AnimatedText from "@/components/ui/AnimatedText"
 
 export default function TeamPage() {
   const containerVariants = {
@@ -47,12 +48,13 @@ export default function TeamPage() {
       initial="hidden"
       animate="visible"
     >
-      <motion.h1
+      <AnimatedText
+        as="h1"
         className="text-center text-3xl md:text-3xl font-bold leading-tight text-[#434343] mb-6 mt-10"
-        variants={itemVariants}
+        speed={0.02}
       >
         Our <span className="text-[#FF6600]">Team</span>
-      </motion.h1>
+      </AnimatedText>
 
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

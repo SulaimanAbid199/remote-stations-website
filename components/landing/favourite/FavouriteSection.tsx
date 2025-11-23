@@ -1,4 +1,7 @@
+"use client";
+
 import CircularStat from "./CircularStat"
+import AnimatedText from "@/components/ui/AnimatedText"
 
 export default function FavouriteSection() {
   return (
@@ -6,9 +9,9 @@ export default function FavouriteSection() {
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-2 md:p-4 lg:p-6">
             <div className="flex flex-col justify-center ">
-              <h1 className="text-3xl md:text-3xl font-bold leading-tight text-[#434343] mb-6">
+              <AnimatedText as="h1" className="text-3xl md:text-3xl font-bold leading-tight text-[#434343] mb-6" speed={0.02}>
                 That's why we're list of <span className="text-[#FF6600]">favorites</span>.
-              </h1>
+              </AnimatedText>
 
               <p className="text-[#767676] text-md leading-relaxed mb-12">
                 Most of the projects fails due to a lack of skills and domain knowledge. Choose our talent, and we're

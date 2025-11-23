@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Wifi, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+import AnimatedText from "@/components/ui/AnimatedText"; 
 
 interface Talent {
   name: string;
@@ -81,20 +82,20 @@ export default function Hero() {
         variants={slideUp}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
+        <AnimatedText as="h2" className="text-5xl lg:text-6xl font-bold leading-tight" speed={0.02}>
           <span className="text-[#FF6600]">HIRE</span> <br />
           <span className="text-black">DEDICATED TALENT</span>
-        </h2>
+        </AnimatedText>
 
-        <p className="text-2xl font-semibold text-gray-800 mt-6">
+        <AnimatedText as="p" className="text-2xl font-semibold text-gray-800 mt-6" delay={0.5} speed={0.02}>
           Not Just Freelancers
-        </p>
+        </AnimatedText>
 
-        <p className="text-gray-600 leading-relaxed mt-4">
+        <AnimatedText as="p" className="text-gray-600 leading-relaxed mt-4" delay={0.2} speed={0.001}>
           Say goodbye to compromises. Experience commitment, quality, and
           reliability like never before. Boost your business with focus and
           quality. Lock your Remote Stations today!
-        </p>
+        </AnimatedText>
 
         <button className="mt-8 flex items-center gap-2 border border-[#FF6600] text-[#FF6600] font-semibold rounded-full px-6 py-3 hover:bg-[#FF6600] hover:text-white transition cursor-pointer">
            <Wifi className="w-5 h-5 -rotate-30" />
