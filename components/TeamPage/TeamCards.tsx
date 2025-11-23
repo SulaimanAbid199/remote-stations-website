@@ -3,34 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { TeamMember } from "@/components/TeamPage/teamDetailPage/teamMembers";
 
 interface TeamCardProps {
   member: TeamMember;
-  custom?: number;
 }
 
-export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
+export default function TeamCard({ member }: TeamCardProps) {
   const [hover, setHover] = useState(false);
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.15, duration: 0.6 },
-    }),
-  };
-
   return (
-    <motion.div
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      custom={custom}
-    >
+    <div>
       <Link href={`/team/${member.slug}`}>
         <div
           className="relative cursor-pointer"
@@ -43,7 +26,9 @@ export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
               transition-all duration-[700ms]
               ${hover ? "opacity-0 scale-95" : "opacity-100 scale-100"}
             `}
-            style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
+            style={{
+              transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)",
+            }}
           >
             <div className="mb-6">
               <div className="relative w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center">
@@ -64,13 +49,16 @@ export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
             </div>
           </div>
 
+          {/* HOVER CARD */}
           <div
             className={`
               absolute inset-0 bg-[#0F0E0E] text-white rounded-[84px] p-8
               transition-all duration-[750ms]
               ${hover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
             `}
-            style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
+            style={{
+              transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)",
+            }}
           >
             <div className="flex items-center gap-4">
               <div
@@ -80,7 +68,9 @@ export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
                   transition-all duration-[700ms]
                   ${hover ? "opacity-100 scale-100" : "opacity-0 scale-95"}
                 `}
-                style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
+                style={{
+                  transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)",
+                }}
               >
                 <Image
                   src={member.image}
@@ -97,7 +87,6 @@ export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
                     text-xl font-bold transition-all duration-[700ms]
                     ${hover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
                   `}
-                  style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
                 >
                   {member.name}
                 </h3>
@@ -107,7 +96,6 @@ export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
                     text-sm text-gray-300 transition-all duration-[700ms] delay-75
                     ${hover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
                   `}
-                  style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
                 >
                   {member.position}
                 </p>
@@ -119,7 +107,6 @@ export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
                 grid grid-cols-2 mt-6 mb-4 transition-all duration-[750ms] delay-100
                 ${hover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
               `}
-              style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
             >
               <div>
                 <h4 className="font-semibold">Experience</h4>
@@ -159,6 +146,6 @@ export default function TeamCard({ member, custom = 0 }: TeamCardProps) {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }

@@ -60,7 +60,7 @@ export function CompetenciesSection() {
   return (
     <div className="max-w-[1600px] mx-auto px-4">
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold">
+        <h2 className="text-4xl md:text-3xl font-bold">
           Our <span className="text-[#FF6600]">Competencies</span>
         </h2>
       </div>
