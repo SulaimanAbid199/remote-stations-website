@@ -31,7 +31,7 @@ const steps = [
 ];
 
 export default function CreateStation() {
-  const [activeStep, setActiveStep] = useState<number>(2);
+  const [activeStep, setActiveStep] = useState<number>(1);
   const router = useRouter();
 
   return (
@@ -64,7 +64,7 @@ export default function CreateStation() {
             <motion.div
               key={step.id}
               onClick={() =>
-                setActiveStep(activeStep === step.id ? 0 : step.id)
+                setActiveStep(step.id)
               }
               className="flex justify-between items-center cursor-pointer border-b border-gray-200 pb-8"
               variants={{
@@ -82,7 +82,7 @@ export default function CreateStation() {
               </h3>
               <div className="flex items-center gap-8 text-gray-400">
                 <span className="text-sm">{`0${step.id}`}</span>
-                <span className="text-lg">{activeStep === step.id ? "−" : "+"}</span>
+                {/* <span className="text-lg">{activeStep === step.id ? "−" : "+"}</span> */}
               </div>
             </motion.div>
           ))}

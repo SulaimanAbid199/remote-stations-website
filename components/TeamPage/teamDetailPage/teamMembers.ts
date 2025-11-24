@@ -31,9 +31,9 @@ export const teamMembers: TeamMember[] = [
   {
     id: "1",
     name: "Umar Aziz",
-    position: "Head of Backend",
+    position: "Squad Leader of Backend",
     image: "/assets/team/member1.svg",
-    cover: "/assets/team/m4D.svg",
+    cover: "/assets/team/m1D.svg",
     slug: "umar-aziz",
 
     skills: [
@@ -220,9 +220,9 @@ export const teamMembers: TeamMember[] = [
   {
     id: "2",
     name: "Abdul Basit Javed",
-    position: "Head of DevOps",
+    position: "Squad Leader of DevOps",
     image: "/assets/team/member2.svg",
-    cover: "/assets/team/m4D.svg",
+    cover: "/assets/team/m2D.svg",
     slug: "abdul-basit-javed",
 
     skills: [
@@ -350,7 +350,7 @@ export const teamMembers: TeamMember[] = [
     name: "Rana Faizan Ahmad",
     position: "Squad Leader of UI/UX",
     image: "/assets/team/member3.svg",
-    cover: "/assets/team/m4D.svg",
+    cover: "/assets/team/m3D.svg",
     slug: "rana-faizan-ahmad",
 
     skills: [
@@ -606,7 +606,7 @@ export const teamMembers: TeamMember[] = [
     name: "Aqeel Javed",
     position: "Squad Leader of Frontend",
     image: "/assets/team/member5.svg",
-    cover: "/assets/team/m4D.svg",
+    cover: "/assets/team/m5D.svg",
     slug: "aqeel-javed",
 
     skills: [

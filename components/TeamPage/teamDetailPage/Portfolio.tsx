@@ -42,7 +42,7 @@ const Section = ({ title, children }: any) => {
 
   return (
     <motion.div
-      className="pb-6"
+      className=""
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0 }}
@@ -56,7 +56,7 @@ const Section = ({ title, children }: any) => {
       }}
     >
       {/* Header */}
-      <div className="flex justify-between items-center border-b border-b-[#E5E5E5] pb-6">
+      <div className="flex justify-between items-center border-b border-b-[#E5E5E5] pb-2">
         <AnimatedText
           as="h2"
           className="text-xl font-semibold"
@@ -151,11 +151,11 @@ export function Portfolio({ member }: PortfolioProps) {
         </motion.div>
 
         {/* RIGHT SIDE CONTENT */}
-        <div className="space-y-10">
+        <div className="space-y-4">
 
           {/* NAME + ROLE */}
           <motion.div
-            className="pb-6"
+            className=""
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -168,7 +168,7 @@ export function Portfolio({ member }: PortfolioProps) {
               {member.name}
             </AnimatedText>
             <motion.p
-              className="mt-1"
+              className=""
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -180,7 +180,7 @@ export function Portfolio({ member }: PortfolioProps) {
           {/* SKILLS */}
           <Section title="Skills">
             <motion.div
-              className="flex flex-wrap gap-3 pt-4"
+              className="flex flex-wrap gap-3 "
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0 }}
@@ -214,7 +214,7 @@ export function Portfolio({ member }: PortfolioProps) {
           {/* DOMAINS */}
           <Section title="Domains & Expertise">
             <motion.div
-              className="flex flex-wrap gap-3 pt-4"
+              className="flex flex-wrap gap-3 "
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0 }}
@@ -254,7 +254,7 @@ export function Portfolio({ member }: PortfolioProps) {
               viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="leading-7 text-sm pt-2">{member.bio}</p>
+              <p className="leading-7 text-sm ">{member.bio}</p>
             </motion.div>
           </Section>
 
@@ -264,7 +264,7 @@ export function Portfolio({ member }: PortfolioProps) {
 
               {/* Vertical Dashed Line */}
               <motion.div
-                className="absolute left-4 top-8 h-full border-l border-dashed"
+                className="absolute left-4 top-2 h-full border-l border-dashed"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -297,14 +297,14 @@ export function Portfolio({ member }: PortfolioProps) {
                   >
                     {/* Dot for each item */}
                     <motion.div
-                      className="absolute -left-[29px] top-8 w-3 h-3 bg-black border-2 rounded-full"
+                      className="absolute -left-[29px] top-2 w-3 h-3 bg-black border-2 rounded-full"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true, amount: 0 }}
                       transition={{ duration: 0.3, delay: 0.4 + i * 0.15 }}
                     />
 
-                    <div className="p-4">
+                    <div className="">
                       <div className="md:flex items-start justify-between">
                         <div className="flex items-center gap-4">
                           <motion.img
@@ -382,16 +382,16 @@ export function Portfolio({ member }: PortfolioProps) {
                 viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="flex items-center gap-4 mt-4">
+                <div className="flex items-center gap-4">
                   <div>
                     <h3 className="font-semibold text-md">
                       {member.education.degree}
                     </h3>
-                    <p className="text-slate-600 mt-4">{member.education.university}</p>
+                    <p className="text-slate-600 ">{member.education.university}</p>
                   </div>
                 </div>
 
-                <p className="text-[#FF6600] font-medium whitespace-nowrap mt-4">
+                <p className="text-[#FF6600] font-medium whitespace-nowrap mt-2">
                   {member.education.date}
                 </p>
               </motion.div>

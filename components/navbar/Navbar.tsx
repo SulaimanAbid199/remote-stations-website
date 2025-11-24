@@ -56,19 +56,46 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobileOpen]);
 
+const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 20);
+  };
+
+  // Scroll event
+  window.addEventListener("scroll", handleScroll);
+
+  // Initial check on page load
+  handleScroll(); 
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
   return (
     <motion.header
       ref={headerRef}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-black text-white shadow-md rounded-4xl fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px]"
+      // className="bg-black text-white shadow-md rounded-4xl fixed top-4 left-1/2 -translate-x-1/2 md:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px]"
+//      className={`bg-black text-white shadow-md rounded-4xl fixed left-1/2 -translate-x-1/2 md:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px] transition-all duration-300 ${
+//   scrolled ? "top-0 rounded-none md:w-[100%] w-[100%]" : "top-4"
+// }`}
+className={`bg-black text-white shadow-md rounded-4xl fixed left-1/2 -translate-x-1/2 md:w-[94%] w-[94%] mx-auto z-50 max-w-[1600px] transition-all duration-300 ${
+    scrolled
+      ? "top-0 rounded-none md:w-[100%] w-[100%] bg-black/80 shadow-xl backdrop-blur-md"
+      : "top-4"
+  }`}
+
+
     >
       <div className="mx-4 sm:mx-6 lg:mx-12">
         <div className="flex justify-between items-center h-16">
           <Link href="/" onClick={handleLinkClick}>
             <Image
-              src="/assets/logo/logo.svg"
+              src="/assets/logo/logo1.svg"
               alt="Logo"
               width={120}
               height={120}

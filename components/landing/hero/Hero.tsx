@@ -5,7 +5,8 @@ import { ChevronLeft, ChevronRight, Wifi, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import AnimatedText from "@/components/ui/AnimatedText"; 
+import AnimatedText from "@/components/ui/AnimatedText";
+import Link from "next/link";
 
 interface Talent {
   name: string;
@@ -14,6 +15,7 @@ interface Talent {
   experience: string;
   rating: number;
   image: string;
+  slug: string;
 }
 
 const talents: Talent[] = [
@@ -24,6 +26,7 @@ const talents: Talent[] = [
     experience: "10 Yr",
     rating: 5,
     image: "/assets/home/hero1.svg",
+    slug: "rana-faizan-ahmad",
   },
   {
     name: "Umar Saleem",
@@ -32,6 +35,7 @@ const talents: Talent[] = [
     experience: "15 Yr",
     rating: 5,
     image: "/assets/home/hero2.svg",
+    slug: "umer-saleem",
   },
   {
     name: "Aqeel Javed",
@@ -40,6 +44,7 @@ const talents: Talent[] = [
     experience: "15 Yr",
     rating: 5,
     image: "/assets/home/hero3.svg",
+    slug: "aqeel-javed",
   },
   {
     name: "Abdul Basit Javed",
@@ -48,6 +53,7 @@ const talents: Talent[] = [
     experience: "25 Yr",
     rating: 5,
     image: "/assets/home/hero4.svg",
+    slug: "abdul-basit-javed",
   },
 ];
 
@@ -67,7 +73,6 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Framer Motion variants
   const slideUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
@@ -82,23 +87,60 @@ export default function Hero() {
         variants={slideUp}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <AnimatedText as="h2" className="text-5xl lg:text-6xl font-bold leading-tight" speed={0.02}>
+        {/* <AnimatedText as="h2" className="text-5xl lg:text-6xl font-bold leading-tight" speed={0.02}>
           <span className="text-[#FF6600]">HIRE</span> <br />
           <span className="text-black">DEDICATED TALENT</span>
-        </AnimatedText>
-
-        <AnimatedText as="p" className="text-2xl font-semibold text-gray-800 mt-6" delay={0.5} speed={0.02}>
+        </AnimatedText>  */}
+        <motion.div
+          className="inline-block text-5xl lg:text-6xl font-bold leading-tight text-[#FF6600]"
+          initial={{ y: 50, scale: 0.9, rotate: -3 }}
+          animate={{
+            y: [0, -6, 0],
+            scale: [1, 1.03, 1],
+            rotate: 0,
+          }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+        >
+          HIRE
+        </motion.div>
+        <br />
+        <motion.div
+          className="inline-block mt-2 text-5xl lg:text-6xl font-bold leading-tight text-black"
+          initial={{ y: -100, scale: 0.9 }} 
+          animate={{ y: 0, scale: 1 }} 
+          transition={{
+            duration: 1.2,
+            ease: "easeOut",
+          }}
+        >
+          DEDICATED TALENT
+        </motion.div>
+        <AnimatedText
+          as="p"
+          className="text-2xl font-semibold text-gray-800 mt-6"
+          delay={0.5}
+          speed={0.02}
+        >
           Not Just Freelancers
         </AnimatedText>
 
-        <AnimatedText as="p" className="text-gray-600 leading-relaxed mt-4" delay={0.2} speed={0.001}>
+        <AnimatedText
+          as="p"
+          className="text-gray-600 leading-relaxed mt-4"
+          delay={0.2}
+          speed={0.001}
+        >
           Say goodbye to compromises. Experience commitment, quality, and
           reliability like never before. Boost your business with focus and
           quality. Lock your Remote Stations today!
         </AnimatedText>
 
         <button className="mt-8 flex items-center gap-2 border border-[#FF6600] text-[#FF6600] font-semibold rounded-full px-6 py-3 hover:bg-[#FF6600] hover:text-white transition cursor-pointer">
-           <Wifi className="w-5 h-5 -rotate-30" />
+          <Wifi className="w-5 h-5 -rotate-30" />
           CREATE YOUR REMOTE STATION
         </button>
       </motion.div>
@@ -115,9 +157,11 @@ export default function Hero() {
             {talents.map((talentItem, index) => (
               <motion.div
                 key={index}
-                className={`${index === current ? "relative" : "absolute inset-0"
-                  } transition-opacity duration-800 ease-in-out ${index === current ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
+                className={`${
+                  index === current ? "relative" : "absolute inset-0"
+                } transition-opacity duration-800 ease-in-out ${
+                  index === current ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: index === current ? 1 : 0 }}
                 transition={{ duration: 0.8 }}
@@ -133,7 +177,6 @@ export default function Hero() {
               </motion.div>
             ))}
 
-
             <motion.button
               className="absolute bottom-20 left-1/2 -translate-x-1/2 
              bg-white/30 backdrop-blur-md text-white px-4 py-3 rounded-full 
@@ -146,7 +189,6 @@ export default function Hero() {
               Book a Discovery Call
               <ArrowUpRight className="w-5 h-5" />
             </motion.button>
-
           </div>
 
           <button
@@ -163,14 +205,13 @@ export default function Hero() {
             <ChevronRight />
           </button>
         </div>
-
         <motion.div
           className="absolute bottom-50 lg:bottom-30 left-[-4px] bg-[#FF6600] text-white px-6 py-3 rounded-lg font-semibold text-lg z-10 transition-opacity duration-700 ease-in-out"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {talent.name}
+          <Link href={`/team/${talent.slug}`}>{talent.name}</Link>
         </motion.div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 w-full gap-2 mt-4">
@@ -188,8 +229,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
             >
               <p
-                className={`font-semibold text-md ${item.color ? "text-[#FF6600]" : ""
-                  }`}
+                className={`font-semibold text-md ${
+                  item.color ? "text-[#FF6600]" : ""
+                }`}
               >
                 {item.value}
               </p>
