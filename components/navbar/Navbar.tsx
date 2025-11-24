@@ -83,7 +83,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" onClick={handleLinkClick}>
             <Image
-              src="/assets/logo/logo1.svg"
+              src="/assets/logo/Logo2.svg"
               alt="Logo"
               width={120}
               height={120}
