@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Wifi, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimatedText from "@/components/ui/AnimatedText";
 import Link from "next/link";
 
@@ -57,10 +57,13 @@ const talents: Talent[] = [
   },
 ];
 
+const words = ["DEDICATED", "EXCLUSIVE", "TOP NOTCH"];
+
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const talent = talents[current];
   const router = useRouter();
+  const [rotatingWord, setRotatingWord] = useState(0);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % talents.length);
   const prevSlide = () =>
@@ -71,6 +74,13 @@ export default function Hero() {
       setCurrent((prev) => (prev + 1) % talents.length);
     }, 4000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const wordInterval = setInterval(() => {
+      setRotatingWord((prev) => (prev + 1) % words.length);
+    }, 2000);
+    return () => clearInterval(wordInterval);
   }, []);
 
   const slideUp = {
@@ -91,34 +101,24 @@ export default function Hero() {
           <span className="text-[#FF6600]">HIRE</span> <br />
           <span className="text-black">DEDICATED TALENT</span>
         </AnimatedText>  */}
-        <motion.div
-          className="inline-block text-5xl lg:text-6xl font-bold leading-tight text-[#FF6600]"
-          initial={{ y: 50, scale: 0.9, rotate: -3 }}
-          animate={{
-            y: [0, -6, 0],
-            scale: [1, 1.03, 1],
-            rotate: 0,
-          }}
-          transition={{
-            duration: 3,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        >
+        <div className="text-5xl lg:text-6xl font-bold leading-tight text-[#FF6600]">
           HIRE
-        </motion.div>
-        <br />
-        <motion.div
-          className="inline-block mt-2 text-5xl lg:text-6xl font-bold leading-tight text-black"
-          initial={{ y: -100, scale: 0.9 }} 
-          animate={{ y: 0, scale: 1 }} 
-          transition={{
-            duration: 1.2,
-            ease: "easeOut",
-          }}
-        >
-          DEDICATED TALENT
-        </motion.div>
+        </div>
+        <div className="mt-2 text-5xl lg:text-6xl font-bold leading-tight text-black">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={rotatingWord}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block"
+            >
+              {words[rotatingWord]}
+            </motion.span>
+          </AnimatePresence>{" "}
+          TALENT
+        </div>
         <AnimatedText
           as="p"
           className="text-2xl font-semibold text-gray-800 mt-6"
@@ -154,28 +154,43 @@ export default function Hero() {
       >
         <div className="lg:ml-30 rounded-2xl overflow-hidden relative">
           <div className="relative group">
-            {talents.map((talentItem, index) => (
-              <motion.div
-                key={index}
-                className={`${
-                  index === current ? "relative" : "absolute inset-0"
-                } transition-opacity duration-800 ease-in-out ${
-                  index === current ? "opacity-100 z-10" : "opacity-0 z-0"
-                }`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: index === current ? 1 : 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <Image
-                  src={talentItem.image}
-                  alt={talentItem.name}
-                  width={500}
-                  height={500}
-                  className="w-full h-auto object-contain rounded-2xl"
-                  priority={index === 0}
-                />
-              </motion.div>
-            ))}
+            <div className="relative w-full">
+              {talents.map((talentItem, index) => (
+                <motion.div
+                  key={index}
+                  className={`${
+                    index === current ? "relative" : "absolute inset-0 pointer-events-none"
+                  } w-full`}
+                  initial={index === current ? { opacity: 1 } : { opacity: 0 }}
+                  animate={{ opacity: index === current ? 1 : 0 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                  }}
+                  style={{
+                    willChange: 'opacity',
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    WebkitTransform: 'translateZ(0)',
+                    transform: 'translateZ(0)',
+                    zIndex: index === current ? 10 : 0,
+                  }}
+                >
+                  <Image
+                    src={talentItem.image}
+                    alt={talentItem.name}
+                    width={500}
+                    height={500}
+                    className="w-full h-auto object-contain rounded-2xl"
+                    priority={index === 0}
+                    style={{
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </div>
 
             <motion.button
               className="absolute bottom-20 left-1/2 -translate-x-1/2 

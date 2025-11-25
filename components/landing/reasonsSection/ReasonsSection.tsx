@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimatedText from "@/components/ui/AnimatedText";
 
 interface Reason {
@@ -72,11 +72,60 @@ export default function ReasonsSection() {
 
             <p className="font-medium mt-2 text-center">{item.title}</p>
 
-            {hovered === index && (
-              <div className="absolute top-6 w-64 p-4 bg-gray-100 rounded-xl shadow-lg text-sm z-20">
-                {item.description}
-              </div>
-            )}
+            <AnimatePresence>
+              {hovered === index && (
+                <motion.div
+                  className="absolute top-6 left-1/2 -translate-x-1/2 w-80 z-20"
+                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 20, scale: 0.8 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="relative bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden border-2 border-[#FF6600]/20">
+                    {/* Animated accent bar */}
+                    <motion.div
+                      className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF6600] via-orange-400 to-[#FF6600]"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                    />
+                    
+                    {/* Content */}
+                    <div className="p-5 relative">
+                      {/* Decorative corner elements */}
+                      <div className="absolute top-4 right-4 w-16 h-16 bg-[#FF6600]/5 rounded-full blur-xl"></div>
+                      <div className="absolute bottom-4 left-4 w-12 h-12 bg-orange-200/30 rounded-full blur-lg"></div>
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-start gap-4">
+                          {/* <motion.div
+                            className="shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF6600] to-orange-500 flex items-center justify-center shadow-lg"
+                            initial={{ rotate: -180, scale: 0 }}
+                            animate={{ rotate: 0, scale: 1 }}
+                            transition={{ duration: 0.5, delay: 0.1, type: "spring" }}
+                          >
+                            <div className="w-3 h-3 rounded-full bg-white"></div>
+                          </motion.div> */}
+                          <motion.p
+                            className="text-gray-700 leading-relaxed text-sm font-medium flex-1"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, delay: 0.2 }}
+                          >
+                            {item.description}
+                          </motion.p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Arrow pointing up */}
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <div className="w-6 h-6 bg-white border-l-2 border-t-2 border-[#FF6600]/20 rotate-45"></div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         ))}
       </motion.div>

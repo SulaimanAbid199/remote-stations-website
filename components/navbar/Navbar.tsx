@@ -85,8 +85,8 @@ export default function Navbar() {
             <Image
               src="/assets/logo/Logo2.svg"
               alt="Logo"
-              width={120}
-              height={120}
+              width={160}
+              height={160}
               className="cursor-pointer rounded-md"
             />
           </Link>
