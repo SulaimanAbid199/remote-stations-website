@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function CompetenciesHero() {
   return (
@@ -24,9 +26,11 @@ export default function CompetenciesHero() {
             </div>
 
             <div>
+              <Link href={`/contact`}>
               <button className="bg-[#FF6600] hover:bg-[#FF6600] text-white text-sm font-semibold rounded-full px-6 py-3 transition mt-4 cursor-pointer">
                 Explore Services
               </button>
+              </Link>
             </div>
           </div>
 

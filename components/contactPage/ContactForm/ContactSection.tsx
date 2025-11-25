@@ -1,48 +1,3 @@
-// import ContactForm from "./ContactForm"
-// import Image from "next/image"
-
-// export const metadata = {
-//   title: "Contact Us",
-//   description: "Get in touch with us",
-// }
-
-// export default function ContactSection() {
-//   return (
-//     <main className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl p-8 md:p-12">
-
-//       <h1 className="text-2xl md:text-3xl font-bold text-center mb-2 text-[#2A2A2A]">
-//         Book a discovery call
-//       </h1>
-
-//       <p className=" mb-12 text-center">
-//         We're passionate about your success. We're just a click away
-//       </p>
-//       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-
-//         <div className="lg:col-span-5 w-full relative h-[600px] rounded-2xl overflow-hidden shadow-md">
-//           <Image
-//             src="/assets/career/apply1.svg"
-//             alt="Application illustration"
-//             fill
-//             className="object-cover"
-//             priority
-//           />
-//         </div>
-
-//         <div className="lg:col-span-7 w-full">
-//           <ContactForm />
-//         </div>
-
-//       </div>
-
-
-//     </main>
-//   )
-// }
-
-
-
-
 "use client"
 
 import ContactForm from "./ContactForm"
@@ -74,7 +29,7 @@ export default function ContactSection() {
 
   return (
     <motion.main
-      className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl p-8 md:p-12"
+      className="max-w-[1600px] mx-auto rounded-4xl shadow-2xl p-8 md:p-8"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -89,7 +44,7 @@ export default function ContactSection() {
 
       <AnimatedText
         as="p"
-        className="mb-12 text-center"
+        className="mb-4 text-center"
         delay={0.3}
         speed={0.015}
       >
@@ -101,7 +56,7 @@ export default function ContactSection() {
         variants={containerVariants}
       >
         <motion.div
-          className="lg:col-span-5 w-full relative h-[600px] rounded-2xl overflow-hidden shadow-md"
+          className="lg:col-span-5 w-full relative h-[400px] lg:h-[710px] rounded-2xl overflow-hidden shadow-md"
           variants={itemVariants}
         >
           <Image
