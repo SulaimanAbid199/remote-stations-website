@@ -112,13 +112,14 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="inline-block"
+              className="inline-block lg:w-[352px] w-[284px] "
             >
               {words[rotatingWord]}
             </motion.span>
           </AnimatePresence>{" "}
           TALENT
-        </div>
+        </div> 
+
         <AnimatedText
           as="p"
           className="text-2xl font-semibold text-gray-800 mt-6"
