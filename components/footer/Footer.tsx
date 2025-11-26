@@ -1,13 +1,30 @@
+"use client"
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 export default function Footer() {
+    const router = useRouter();
+  const pathname = usePathname();
+
+  const handleScroll = (id: string) => {
+    if (pathname !== "/") {
+      router.push("/#" + id);
+      return;
+    }
+
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
   return (
     
     <footer>
       <div className="bg-[#1C180D] text-white">
         <div className="grid grid-cols-1 md:grid-cols-4  py-16 gap-12 md:w-[94%] sm:w-[94%] w-[94%] mx-auto max-w-[1600px] mx-auto">
           <div className="flex flex-col">
-              <Link href="/">
+            <Link href="/">
             <Image
               src="/assets/logo/logo.svg"
               alt="logo"
@@ -29,13 +46,13 @@ export default function Footer() {
                   Competancies
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="#"
-                  className=" text-sm  hover:text-white transition-colors"
+                <li>
+                <button
+                  onClick={() => handleScroll("why-choose-us")}
+                  className="text-sm hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Why choose us?
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

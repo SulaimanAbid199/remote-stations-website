@@ -20,7 +20,7 @@ export default function LandingPage() {
           <PartnersSection />
         </div>
       </div>
-      <div className="bg-[#FBFBFB] py-20">
+      <div id="why-choose-us" className="bg-[#FBFBFB] py-20">
         <div className="md:w-[94%] sm:w-[94%] w-[94%] mx-auto">
           <ReasonsSection />
         </div>

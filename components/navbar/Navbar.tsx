@@ -4,29 +4,43 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname ,useRouter} from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const companyDropdownRef = useRef<HTMLDivElement>(null);
   const mobileCompanyDropdownRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
     { name: "Competencies", href: "/competencies" },
     { name: "Career", href: "/career" },
     { name: "Contact Us", href: "/contact" },
   ];
-
   const companyDropdownItems = [
-    { name: "Why Choose Us", href: "/why-choose-us" },
     { name: "Our Team", href: "/team" },
     { name: "Our Competencies", href: "/competencies" },
     { name: "FAQs", href: "/faqs" },
   ];
+
+  const scrollToWhyChooseUs = () => {
+    if (pathname === "/") {
+      setTimeout(() => {
+        const el = document.getElementById("why-choose-us");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      router.push("/#why-choose-us");
+    }
+
+    setIsMobileOpen(false);
+    setIsCompanyOpen(false);
+  };
 
   const handleMobileMenuToggle = () => {
     setIsMobileOpen(!isMobileOpen);
@@ -56,7 +70,7 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobileOpen]);
 
-  const [scrolled, setScrolled] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,16 +101,14 @@ export default function Navbar() {
               alt="Logo"
               width={160}
               height={160}
-              className="cursor-pointer rounded-md"
+              className="cursor-pointer rounded-md ml-[-20px]"
             />
           </Link>
-
-          {/* Desktop Menu */}
           <nav className="hidden md:flex space-x-8 text-sm font-medium">
             <div className="relative" ref={companyDropdownRef}>
               <button
                 onClick={() => setIsCompanyOpen(!isCompanyOpen)}
-                className={`flex items-center gap-1 transition ${
+                className={`flex items-center gap-1 transition cursor-pointer ${
                   pathname === "/"
                     ? "text-[#FF6600]"
                     : "text-white hover:text-[#FF6600]"
@@ -118,6 +130,12 @@ export default function Navbar() {
                     transition={{ duration: 0.2 }}
                     className="absolute left-[-50px] top-8 bg-white rounded-lg shadow-lg p-4 space-y-3 w-45 z-50"
                   >
+                    <button
+                      onClick={scrollToWhyChooseUs}
+                      className="block text-left w-full text-black hover:text-orange-500 transition cursor-pointer"
+                    >
+                      Why Choose Us
+                    </button>
                     {companyDropdownItems.map((sub) => (
                       <Link
                         key={sub.name}
@@ -141,6 +159,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={handleLinkClick}
                 className={`transition ${
                   pathname === item.href
                     ? "text-[#FF6600]"
@@ -156,14 +175,14 @@ export default function Navbar() {
           <button
             id="mobile-menu-button"
             onClick={handleMobileMenuToggle}
-            className="md:hidden focus:outline-none"
+            className="md:hidden focus:outline-none cursor-pointer"
           >
             {isMobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
@@ -181,14 +200,13 @@ export default function Navbar() {
               <div className="border-b border-gray-700 pb-2">
                 <button
                   onClick={() => setIsCompanyOpen(!isCompanyOpen)}
-                  className="flex items-center justify-between w-full text-white hover:text-[#FF6600]"
+                  className="flex items-center justify-between w-full text-white hover:text-[#FF6600] cursor-pointer"
                 >
                   Company
                   <ChevronDown
                     className={`${isCompanyOpen ? "rotate-180" : ""}`}
                   />
                 </button>
-
                 <AnimatePresence>
                   {isCompanyOpen && (
                     <motion.div
@@ -198,6 +216,13 @@ export default function Navbar() {
                       transition={{ duration: 0.25 }}
                       className="mt-2 flex flex-col space-y-2 bg-white rounded-lg p-1"
                     >
+                    <button
+                        onClick={scrollToWhyChooseUs}
+                        className="px-2 text-left rounded text-black hover:text-orange-500 transition cursor-pointer"
+                      >
+                        Why Choose Us
+                      </button>
+
                       {companyDropdownItems.map((sub) => (
                         <Link
                           key={sub.name}
