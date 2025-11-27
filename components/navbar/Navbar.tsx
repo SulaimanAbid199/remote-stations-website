@@ -99,8 +99,8 @@ export default function Navbar() {
             <Image
               src="/assets/logo/Logo2.svg"
               alt="Logo"
-              width={160}
-              height={160}
+              width={200}
+              height={200}
               className="cursor-pointer rounded-md ml-[-20px]"
             />
           </Link>
